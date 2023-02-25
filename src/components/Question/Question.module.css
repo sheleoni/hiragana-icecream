@@ -1,0 +1,11 @@
+.question {
+    grid-area: question;
+    display: flex;
+    flex-direction: column;
+    /*background-color: azure;*/
+    border-radius: 5px;
+}
+
+.questionImage {
+    max-width: 100%;
+}

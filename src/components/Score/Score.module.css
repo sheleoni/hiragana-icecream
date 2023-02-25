@@ -1,0 +1,18 @@
+.scoreContainer {
+
+    max-width: 100%;
+    /* specify container height to allow ice cream to shrink inside the container*/
+    grid-area: score;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    overflow: hidden;
+
+}
+
+.scoreContainer__scoreImage {
+    /*object-fit: contain;*/
+    max-width: 100%;
+    max-height: 80%;
+    /*transform: translateY(-50%);*/
+}
