@@ -1,0 +1,151 @@
+.choiceArea {
+    max-width: 100%;
+    grid-area: choice;
+    background-color: burlywood;
+    border-radius: 5px;
+    flex-direction: column;
+    position: relative;
+}
+
+.choiceArea__bubbleContainer {
+    position: absolute;
+    width: 30%;
+    color: black;
+    /* animation */
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+    /* centering letters */
+    justify-items: center;
+    align-items: center;
+    display: block;
+
+}
+
+.choiceArea__bubbleBackground {
+    width: 100%;
+}
+
+/* position individual bubbles */
+.choiceArea__bubbleContainer:nth-of-type(1) {
+    top: 10%;
+    left: 5%;
+}
+
+.choiceArea__bubbleContainer:nth-of-type(2) {
+    top: 5%;
+    left: 36.5%;
+}
+
+.choiceArea__bubbleContainer:nth-of-type(3) {
+    top: 13%;
+    left: 65%;
+}
+
+.choiceArea__bubbleContainer:nth-of-type(4) {
+    top: 50%;
+    left: 20%;
+}
+
+.choiceArea__bubbleContainer:nth-of-type(5) {
+    top: 55%;
+    left: 55%;
+}
+
+.choiceArea__bubbleContainer:nth-of-type(odd) {
+    transform: rotate(5deg);
+    animation-name: bubble-right;
+
+}
+
+.choiceArea__bubbleContainer:nth-of-type(even) {
+    transform: rotate(-5deg) scaleX(-1);
+    animation-name: bubble-left;
+}
+
+.choiceArea__bubbleContainer:nth-of-type(1) {
+    color: red
+}
+
+.choiceArea__bubbleContainer:nth-of-type(2) {
+    color: orangered;
+}
+
+.choiceArea__bubbleContainer:nth-of-type(3) {
+    color: darkorange;
+}
+
+.choiceArea__bubbleContainer:nth-of-type(4) {
+    color: goldenrod;
+}
+
+.choiceArea__bubbleContainer:nth-of-type(5) {
+    color: forestgreen;
+}
+
+.choiceArea__choiceLetter {
+    width: 60px;
+    position: absolute;
+    font-weight: bold;
+    font-size: 5rem;
+    /*top: 16%;*/
+    /*left: 12%;*/
+}
+
+/* dynamically adjusting font sizes based on screen width */
+@media (min-width: 1100px) {
+    .choiceArea__choiceLetter {
+        font-size: 5rem;
+        /*top: 15%;*/
+        /*left: 25%;*/
+    }
+}
+
+@media (min-width: 800px) and (max-width: 1099px) {
+    .choiceArea__choiceLetter {
+        font-size: 4rem;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 799px) {
+    .choiceArea__choiceLetter {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 599px) {
+    .choiceArea__choiceLetter {
+        font-size: 2rem;
+    }
+}
+
+/* un-flips the letter inside odd-numbered bubbles */
+.choiceArea__bubbleContainer:nth-child(odd) > .choiceArea__choiceLetter {
+    transform: scaleX(-1);
+}
+
+
+@keyframes bubble-right {
+    0% {
+        transform: translateY(0) scaleX(-1);
+    }
+    50% {
+        transform: rotate(5deg) translateY(-10px) scaleX(-1);
+    }
+    100% {
+        transform: translateY(0) scaleX(-1);
+    }
+}
+
+@keyframes bubble-left {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: rotate(-5deg) translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}

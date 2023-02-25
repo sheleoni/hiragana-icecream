@@ -1,0 +1,27 @@
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.gameInterface {
+    text-align: center;
+    max-width: 1200px;
+    width: 90vw;
+    aspect-ratio: 16/9;
+    display: grid;
+    grid-template-areas:
+            "score question choice"
+            "score progress progress";
+    gap: 10px;
+    grid-template-columns: 20% 30% 50%;
+    grid-template-rows: 1fr 35%;
+}
+
+
+.progress {
+    grid-area: progress;
+    background-color: lightskyblue;
+    border-radius: 5px;
+}
