@@ -23,9 +23,6 @@
 
 }
 
-.choiceArea__bubbleBackground {
-    width: 100%;
-}
 
 /* position individual bubbles */
 .choiceArea__bubbleContainer:nth-of-type(1) {
@@ -54,14 +51,22 @@
 }
 
 .choiceArea__bubbleContainer:nth-of-type(odd) {
-    transform: rotate(5deg);
     animation-name: bubble-right;
 
 }
 
 .choiceArea__bubbleContainer:nth-of-type(even) {
-    transform: rotate(-5deg) scaleX(-1);
     animation-name: bubble-left;
+}
+
+.choiceArea__bubbleContainer:nth-of-type(odd) > .choiceArea__bubbleBackground {
+    transform: rotate(5deg);
+    width: 100%;
+}
+
+.choiceArea__bubbleContainer:nth-of-type(even) > .choiceArea__bubbleBackground {
+    transform: rotate(-5deg) scaleX(-1);
+    width: 100%;
 }
 
 .choiceArea__bubbleContainer:nth-of-type(1) {
