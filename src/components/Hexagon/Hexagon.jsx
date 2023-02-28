@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from './Hexagon.module.css';
 
-function Hexagon() {
+function Hexagon({choiceLetter}) {
     return (
         <>
             <span className={styles.hexagonWrapper}>
                 <span className={styles.letter}>
-                    あ
+                    {choiceLetter}
                 </span>
                 {/* adds outline on topmost layer */}
                 <img

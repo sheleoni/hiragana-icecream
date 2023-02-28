@@ -7,7 +7,7 @@ function Progress({choiceLetters}) {
         {choiceLetters.map((letter) => {
             return (
                 <>
-                    <Hexagon/>
+                    <Hexagon choiceLetter={letter.hiragana}/>
                 </>
             )
         })}
