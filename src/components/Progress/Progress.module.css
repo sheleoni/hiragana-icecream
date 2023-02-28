@@ -1,0 +1,8 @@
+.progress {
+    grid-area: progress;
+    background-color: lightskyblue;
+    border-radius: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-inline-start: -300px;
+}

@@ -12,6 +12,7 @@ function Choices({choiceLetters}) {
                     <span className={styles.choiceArea__choiceLetter}>
                                     {choice.romaji}
                                 </span>
+                    <span className={styles.choiceArea__bubbleShadow}></span>
                 </section>
             )
 

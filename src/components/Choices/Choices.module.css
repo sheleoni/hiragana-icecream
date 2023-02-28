@@ -1,3 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&display=swap');
+
+/* produced from: https://www.joshwcomeau.com/shadow-palette/ */
+:root {
+    --shadow-color: 0deg 0% 0%;
+    --shadow-elevation-low: -0.1px 0.6px 0.9px hsl(var(--shadow-color) / 0),
+    -0.2px 1.1px 1.7px hsl(var(--shadow-color) / 0.05),
+    -0.5px 2.2px 3.4px hsl(var(--shadow-color) / 0.11);
+    --shadow-elevation-medium: -0.1px 0.6px 0.9px hsl(var(--shadow-color) / 0),
+    -0.5px 2.2px 3.4px hsl(var(--shadow-color) / 0.03),
+    -0.8px 3.8px 5.8px hsl(var(--shadow-color) / 0.05),
+    -1.4px 6.4px 9.8px hsl(var(--shadow-color) / 0.08),
+    -2.3px 10.8px 16.6px hsl(var(--shadow-color) / 0.11);
+    --shadow-elevation-high: -0.1px 0.6px 0.9px hsl(var(--shadow-color) / 0),
+    -0.9px 4.1px 6.3px hsl(var(--shadow-color) / 0.01),
+    -1.6px 7.2px 11.1px hsl(var(--shadow-color) / 0.02),
+    -2.2px 10.2px 15.7px hsl(var(--shadow-color) / 0.04),
+    -2.9px 13.4px 20.6px hsl(var(--shadow-color) / 0.05),
+    -3.7px 17.3px 26.5px hsl(var(--shadow-color) / 0.06),
+    -4.8px 22.3px 34.2px hsl(var(--shadow-color) / 0.07),
+    -6.2px 28.8px 44.2px hsl(var(--shadow-color) / 0.09),
+    -8px 37px 56.8px hsl(var(--shadow-color) / 0.1),
+    -10.3px 47.5px 72.9px hsl(var(--shadow-color) / 0.11);
+}
+
 .choiceArea {
     max-width: 100%;
     grid-area: choice;
@@ -32,7 +57,7 @@
 
 .choiceArea__bubbleContainer:nth-of-type(2) {
     top: 5%;
-    left: 36.5%;
+    left: 35.5%;
 }
 
 .choiceArea__bubbleContainer:nth-of-type(3) {
@@ -59,6 +84,20 @@
     animation-name: bubble-left;
 }
 
+.choiceArea__bubbleBackground::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: 0 0 50px 20px rgba(0, 0, 0, 0.7);
+    z-index: 4;
+}
+
 .choiceArea__bubbleContainer:nth-of-type(odd) > .choiceArea__bubbleBackground {
     transform: rotate(5deg);
     width: 100%;
@@ -69,77 +108,81 @@
     width: 100%;
 }
 
-.choiceArea__bubbleContainer:nth-of-type(1) {
-    color: red
-}
-
-.choiceArea__bubbleContainer:nth-of-type(2) {
-    color: orangered;
-}
-
-.choiceArea__bubbleContainer:nth-of-type(3) {
-    color: darkorange;
-}
-
-.choiceArea__bubbleContainer:nth-of-type(4) {
-    color: goldenrod;
-}
-
-.choiceArea__bubbleContainer:nth-of-type(5) {
-    color: forestgreen;
-}
+/* Letters in bubbles */
 
 .choiceArea__choiceLetter {
     width: 60px;
     position: absolute;
-    font-weight: bold;
+    font-family: 'Zen Maru Gothic', sans-serif;
+    font-weight: 900;
     font-size: 5rem;
-    /*top: 16%;*/
-    /*left: 12%;*/
+    /*top: 18%;*/
+    /*left: 34%;*/
 }
+
+.choiceArea__bubbleContainer:nth-of-type(1) > .choiceArea__choiceLetter {
+    color: red
+}
+
+.choiceArea__bubbleContainer:nth-of-type(2) > .choiceArea__choiceLetter {
+    color: orangered;
+}
+
+.choiceArea__bubbleContainer:nth-of-type(3) > .choiceArea__choiceLetter {
+    color: darkorange;
+}
+
+.choiceArea__bubbleContainer:nth-of-type(4) > .choiceArea__choiceLetter {
+    color: goldenrod;
+}
+
+.choiceArea__bubbleContainer:nth-of-type(5) > .choiceArea__choiceLetter {
+    color: forestgreen;
+}
+
 
 /* dynamically adjusting font sizes based on screen width */
 @media (min-width: 1100px) {
     .choiceArea__choiceLetter {
         font-size: 5rem;
-        /*top: 15%;*/
-        /*left: 25%;*/
+        top: 18%;
+        left: 34%;
     }
 }
 
-@media (min-width: 800px) and (max-width: 1099px) {
+@media (min-width: 1000px) and (max-width: 1099px) {
     .choiceArea__choiceLetter {
         font-size: 4rem;
+        top: 18%;
+        left: 31%;
     }
 }
 
-@media (min-width: 600px) and (max-width: 799px) {
+@media (min-width: 750px) and (max-width: 999px) {
     .choiceArea__choiceLetter {
         font-size: 3rem;
+        top: 20%;
+        left: 28%;
     }
 }
 
-@media (max-width: 599px) {
+@media (max-width: 749px) {
     .choiceArea__choiceLetter {
         font-size: 2rem;
+        top: 23%;
+        left: 20%;
     }
 }
-
-/* un-flips the letter inside odd-numbered bubbles */
-.choiceArea__bubbleContainer:nth-child(odd) > .choiceArea__choiceLetter {
-    transform: scaleX(-1);
-}
-
 
 @keyframes bubble-right {
     0% {
-        transform: translateY(0) scaleX(-1);
+        transform: translateY(0);
     }
     50% {
-        transform: rotate(5deg) translateY(-10px) scaleX(-1);
+        transform: rotate(5deg) translateY(-10px);
     }
     100% {
-        transform: translateY(0) scaleX(-1);
+        transform: translateY(0);
     }
 }
 
@@ -153,4 +196,17 @@
     100% {
         transform: translateY(0);
     }
+}
+
+/* bubble shadow */
+.choiceArea__bubbleShadow {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    width: 150px;
+    height: 150px;
+    transform: translateY(-50%);
+    box-shadow: var(--shadow-elevation-high);
+    border-radius: 50%;
+    z-index: -1;
 }

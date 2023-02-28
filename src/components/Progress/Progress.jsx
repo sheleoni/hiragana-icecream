@@ -1,15 +1,14 @@
 import React from 'react';
+import styles from './Progress.module.css'
+import Hexagon from "../Hexagon/index.js";
 
 function Progress({choiceLetters}) {
-    return <section className="progress">
+    return <section className={styles.progress}>
         {choiceLetters.map((letter) => {
             return (
-                <button key={letter.hiragana} value={letter.hiragana}
-                        onClick={
-                            (event) => console.log(event.target.value)
-                        }>
-                    {letter.hiragana}
-                </button>
+                <>
+                    <Hexagon/>
+                </>
             )
         })}
 
