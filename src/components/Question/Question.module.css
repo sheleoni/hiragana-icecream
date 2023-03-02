@@ -2,6 +2,7 @@
     grid-area: question;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
     /*background-color: azure;*/
     border-radius: 5px;
 }
