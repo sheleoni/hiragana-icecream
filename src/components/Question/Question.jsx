@@ -12,17 +12,21 @@ function Question({question, setQuestion, answer, getRandomLetter}) {
 
     const imgPath = question.hiraganaImgURL;
 
-    fetch(imgPath)
-        .then(response => {
-            if (response.ok) {
-                console.log('Image is available online');
-            } else {
-                console.error('Image is not available online');
-            }
-        })
-        .catch(error => {
-            console.error('Error checking image:', error);
-        });
+    const questionImage = () => {
+        if (imgPath) {
+            return (
+                <img className={styles.questionImage}
+                     src={question.hiraganaImgURL}
+                     alt={question.hiragana}/>
+            )
+        } else {
+            return (
+                <p className={styles.questionWord}>
+                    {question.hiragana}
+                </p>);
+        }
+
+    }
     const getNextQuestion = () => {
         console.log("getting next question!")
         const newQuestion = getRandomLetter();
@@ -39,12 +43,8 @@ function Question({question, setQuestion, answer, getRandomLetter}) {
                  onClick={() => {
                      getNextQuestion()
                  }}>
-
-            <img className={styles.questionImage}
-                 src={question.hiraganaImgURL}
-                 alt={question.hiragana}/>
-
             current answer is : {question.hiragana}
+            {questionImage()}
         </section>
     );
 }

@@ -16,7 +16,7 @@
             "score progress progress";
     gap: 10px;
     grid-template-columns: 20% 30% 50%;
-    grid-template-rows: 1fr 35%;
+    grid-template-rows: 55% 45%;
 }
 
 
