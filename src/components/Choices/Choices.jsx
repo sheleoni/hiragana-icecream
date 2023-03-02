@@ -24,7 +24,7 @@ function Choices({answer, choiceLetters, score, setScore}) {
 
 
     return <section className={styles.choiceArea}>
-        {choiceLetters.map((choice) => {
+        {choiceLetters.slice(0, 5).map((choice) => {
             return (
                 <section key={choice.romaji} className={styles.choiceArea__bubbleContainer}
                          onClick={() => checkAnswer(choice.hiragana, answer)}>

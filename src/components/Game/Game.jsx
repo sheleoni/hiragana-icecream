@@ -22,18 +22,34 @@ function Game() {
 
     const choiceLetters = choiceData;
 
+    const getRandomLetter = () => {
+        const randomIndex = Math.floor(Math.random() * choiceData.length);
+        const currentQuestionData = choiceData[randomIndex];
+        return {
+            hiragana: currentQuestionData.hiragana,
+            hiraganaImgURL: currentQuestionData.hiraganaImgURL,
+            romaji: currentQuestionData.romaji
+        }
+    }
+
+    const currentQuestion = getRandomLetter();
+
+    console.log(currentQuestion);
+    console.log("↑ currentQuestion");
 
     return (
-        <section className="gameInterface">
-            {/* shows scores in terms of ice-cream scope*/}
-            <ScoreDisplay score={score}/>
-            {/* shows あいうえお with stroke .gif */}
-            <Question answer={answer}/>
-            {/* bubbles for users to select */}
-            <Choices answer={answer} choiceLetters={choiceLetters} score={score} setScore={setScore}/>
-            {/* hexagons */}
-            <Progress choiceLetters={choiceLetters}/>
-        </section>
+        <>
+            <section className="gameInterface">
+                {/* shows scores in terms of ice-cream scope*/}
+                <ScoreDisplay score={score}/>
+                {/* shows あいうえお with stroke .gif */}
+                <Question answer={answer}/>
+                {/* bubbles for users to select */}
+                <Choices answer={answer} choiceLetters={choiceLetters} score={score} setScore={setScore}/>
+                {/* hexagons */}
+                <Progress choiceLetters={choiceLetters}/>
+            </section>
+        </>
     )
 }
 
