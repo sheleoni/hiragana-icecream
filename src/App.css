@@ -20,8 +20,3 @@
 }
 
 
-.progress {
-    grid-area: progress;
-    background-color: lightskyblue;
-    border-radius: 5px;
-}
