@@ -2,7 +2,8 @@
 
 :root {
     --hexagon-width: 150px;
-    --hexagon-height: 150px;
+    --hexagon-height: var(--hexagon-width);
+    /*--hexagon-height: 150px;*/
 }
 
 .hexagonWrapper {
@@ -48,21 +49,27 @@
     position: absolute;
     left: 50%;
     /* note: add dynamic link to control w_100, h_100 to prevent intrinsic size */
-    height: var(--hexagon-height);
-    width: var(--hexagon-width);
-    -webkit-mask-image: url(https://res.cloudinary.com/dd1dw34dc/image/upload/w_150,h_150/Hexagonal_aiueo_2_bmkrho.png);
-    mask-image: url(https://res.cloudinary.com/dd1dw34dc/image/upload/w_150,h_150/Hexagonal_aiueo_2_bmkrho.png);
+
+
+    -webkit-mask-image: url(https://res.cloudinary.com/dd1dw34dc/image/upload/v1676741078/hiragana_game/Hexagonal_aiueo_2_bmkrho.png);
+    mask-image: url(https://res.cloudinary.com/dd1dw34dc/image/upload/v1676741078/hiragana_game/Hexagonal_aiueo_2_bmkrho.png);
+
+
+    /*-webkit-mask-image: url(https://res.cloudinary.com/dd1dw34dc/image/upload/v1676741078/w_150,h_150/hiragana_game/Hexagonal_aiueo_2_bmkrho.png);*/
+    /*mask-image: url(https://res.cloudinary.com/dd1dw34dc/image/upload/v1676741078/w_150,h_150/hiragana_game/Hexagonal_aiueo_2_bmkrho.png);*/
+
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
-
+    mask-size: var(--hexagon-width) var(--hexagon-height);
+    -webkit-mask-size: var(--hexagon-width) var(--hexagon-height);
+    height: var(--hexagon-height);
+    width: var(--hexagon-width);
 }
 
 /* https://res.cloudinary.com/demo/image/upload/e_colorize,co_pink,w_200,h_200/hexagon_sample.png */
 .waveWrapper {
     overflow: hidden;
     white-space: nowrap;
-    /*height: var(--hexagon-height);*/
-    /*width: var(--hexagon-width);*/
 }
 
 .movingWave {

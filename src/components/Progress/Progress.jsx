@@ -6,9 +6,7 @@ function Progress({choiceLetters}) {
     return <section className={styles.progress}>
         {choiceLetters.map((letter) => {
             return (
-                <>
-                    <Hexagon choiceLetter={letter.hiragana}/>
-                </>
+                <Hexagon key={letter.romaji} choiceLetter={letter.hiragana}/>
             )
         })}
 

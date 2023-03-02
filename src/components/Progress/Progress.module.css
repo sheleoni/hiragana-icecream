@@ -3,6 +3,6 @@
     background-color: lightskyblue;
     border-radius: 5px;
     white-space: nowrap;
-    overflow: hidden;
+    overflow: scroll;
     padding-inline-start: -300px;
 }

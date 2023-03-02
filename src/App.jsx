@@ -1,15 +1,8 @@
 import {useState} from 'react'
 import './App.css'
-import Question from "./components/Question/index.js";
-import Choices from "./components/Choices/index.js";
-import Progress from "./components/Progress/index.js";
-import Score from "./components/Score/index.js";
+import Game from "./components/Game/index.js";
 
 function App() {
-    const [score, setScore] = useState(0);
-    const [currentAnswer, setCurrentAnswer] = useState('あ');
-    const [currentGuess, setCurrentGuess] = useState('')
-
 
     const choiceLetters = [
         {
@@ -29,15 +22,9 @@ function App() {
             romaji: "o"
         }];
 
-
     return (
         <main className="App">
-            <section className="gameInterface">
-                <Score/>
-                <Question/>
-                <Choices choiceLetters={choiceLetters}/>
-                <Progress choiceLetters={choiceLetters}/>
-            </section>
+            <Game/>
         </main>
     )
 }
