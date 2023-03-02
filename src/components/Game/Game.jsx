@@ -15,25 +15,47 @@ function Game() {
 
     const [score, setScore] = useState(scoreData);
     const [answer, setAnswer] = useState('あ');
-    const [question, setQuestion] = useState('あ');
+    const [question, setQuestion] = useState(
+        {
+            romaji: "a",
+            hiragana: "あ",
+            hiraganaImgURL:
+                "https://res.cloudinary.com/dd1dw34dc/image/upload/v1676767333/hiragana_game/%E3%81%82_stroke_hgeopi.gif"
+        });
 
-    console.log("your score");
-    console.log(scoreData);
 
     const choiceLetters = choiceData;
 
+    const getRandomLetter = () => {
+        const randomIndex = Math.floor(Math.random() * choiceData.length);
+        const currentQuestionData = choiceData[randomIndex];
+        return {
+            hiragana: currentQuestionData.hiragana,
+            hiraganaImgURL: currentQuestionData.hiraganaImgURL,
+            romaji: currentQuestionData.romaji
+        }
+    }
+
+    const currentQuestion = getRandomLetter();
+
+    console.log(currentQuestion);
+    console.log("↑ currentQuestion");
 
     return (
-        <section className="gameInterface">
-            {/* shows scores in terms of ice-cream scope*/}
-            <ScoreDisplay score={score}/>
-            {/* shows あいうえお with stroke .gif */}
-            <Question answer={answer}/>
-            {/* bubbles for users to select */}
-            <Choices answer={answer} choiceLetters={choiceLetters} score={score} setScore={setScore}/>
-            {/* hexagons */}
-            <Progress choiceLetters={choiceLetters}/>
-        </section>
+        <>
+            <button onClick={() => console.log(getRandomLetter())}>🔀</button>
+            <section className="gameInterface">
+                {/* shows scores in terms of ice-cream scope*/}
+                <ScoreDisplay score={score}/>
+                {/* shows あいうえお with stroke .gif */}
+                <Question question={question} setQuestion={setQuestion} answer={answer}
+                          choiceData={choiceData} getRandomLetter={getRandomLetter}/>
+                {/* bubbles for users to select */}
+                <Choices answer={answer} choiceLetters={choiceLetters} score={score} setScore={setScore}/>
+                {/* hexagons */}
+                <Progress choiceLetters={choiceLetters}/>
+            </section>
+        </>
     )
 }
 
