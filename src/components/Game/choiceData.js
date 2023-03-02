@@ -6,6 +6,7 @@ const choiceData = [
             "https://res.cloudinary.com/dd1dw34dc/image/upload/v1676767333/hiragana_game/%E3%81%82_stroke_hgeopi.gif",
         katakana: "ア",
         katakanaImgURL: "",
+        row: "あ行",
     },
     {
         romaji: "i",
@@ -13,6 +14,8 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "イ",
         katakanaImgURL: "",
+        row: "あ行",
+
     },
     {
         romaji: "u",
@@ -20,6 +23,8 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ウ",
         katakanaImgURL: "",
+        row: "あ行",
+
     },
     {
         romaji: "e",
@@ -27,6 +32,8 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "エ",
         katakanaImgURL: "",
+        row: "あ行",
+
     },
     {
         romaji: "o",
@@ -34,6 +41,8 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "オ",
         katakanaImgURL: "",
+        row: "あ行",
+
     },
     {
         romaji: "ka",
@@ -41,6 +50,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "カ",
         katakanaImgURL: "",
+        row: "か行",
     },
     {
         romaji: "ga",
@@ -48,6 +58,8 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ガ",
         katakanaImgURL: "",
+        row: "が行",
+
     },
     {
         romaji: "ki",
@@ -55,6 +67,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "キ",
         katakanaImgURL: "",
+        row: "か行",
     },
     {
         romaji: "gi",
@@ -62,6 +75,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ギ",
         katakanaImgURL: "",
+        row: "が行",
     },
     {
         romaji: "ku",
@@ -69,6 +83,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ク",
         katakanaImgURL: "",
+        row: "か行",
     },
     {
         romaji: "gu",
@@ -76,6 +91,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "グ",
         katakanaImgURL: "",
+        row: "が行",
     },
     {
         romaji: "ke",
@@ -83,6 +99,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ケ",
         katakanaImg: ""
+        row: "か行",
     },
     {
         romaji: "ge",
@@ -90,6 +107,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ゲ",
         katakanaImgURL: "",
+        row: "が行",
     },
     {
         romaji: "ko",
@@ -97,6 +115,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "コ",
         katakanaImgURL: "",
+        row: "か行",
     },
     {
         romaji: "go",
@@ -104,6 +123,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ゴ",
         katakanaImgURL: "",
+        row: "が行",
     },
     {
         romaji: "sa",
@@ -111,6 +131,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "サ",
         katakanaImgURL: "",
+        row: "さ行",
     },
     {
         romaji: "za",
@@ -118,6 +139,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ザ",
         katakanaImgURL: "",
+        row: "ざ行",
     },
     {
         romaji: "shi",
@@ -125,6 +147,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "シ",
         katakanaImgURL: "",
+        row: "さ行",
     },
     {
         romaji: "ji",
@@ -132,6 +155,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ジ",
         katakanaImgURL: "",
+        row: "ざ行",
     },
     {
         romaji: "su",
@@ -139,6 +163,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ス",
         katakanaImgURL: "",
+        row: "さ行",
     },
     {
         romaji: "zu",
@@ -146,6 +171,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ズ",
         katakanaImgURL: "",
+        row: "ざ行",
     },
     {
         romaji: "se",
@@ -153,6 +179,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "セ",
         katakanaImgURL: "",
+        row: "さ行",
     },
     {
         romaji: "ze",
@@ -160,6 +187,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ゼ",
         katakanaImgURL: "",
+        row: "ざ行",
     },
     {
         romaji: "so",
@@ -167,6 +195,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ソ",
         katakanaImgURL: "",
+        row: "さ行",
     },
     {
         romaji: "zo",
@@ -174,6 +203,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ゾ",
         katakanaImgURL: "",
+        row: "ざ行",
     },
     {
         romaji: "ta",
@@ -181,6 +211,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "タ",
         katakanaImgURL: "",
+        row: "た行",
     },
     {
         romaji: "da",
@@ -195,6 +226,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "チ",
         katakanaImgURL: "",
+        row: "た行",
     },
     {
         romaji: "di",
@@ -202,6 +234,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ヂ",
         katakanaImgURL: "",
+        row: "だ行",
     },
     {
         romaji: "tsu",
@@ -209,6 +242,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ツ",
         katakanaImgURL: "",
+        row: "た行",
     },
     {
         romaji: "du",
@@ -216,6 +250,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ヅ",
         katakanaImgURL: "",
+        row: "だ行",
     },
     {
         romaji: "te",
@@ -223,6 +258,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "テ",
         katakanaImgURL: "",
+        row: "た行",
     },
     {
         romaji: "de",
@@ -230,6 +266,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "デ",
         katakanaImgURL: "",
+        row: "だ行",
     },
     {
         romaji: "to",
@@ -237,6 +274,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ト",
         katakanaImgURL: "",
+        row: "た行",
     },
     {
         romaji: "do",
@@ -244,6 +282,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ド",
         katakanaImgURL: "",
+        row: "だ行",
     },
     {
         romaji: "na",
@@ -251,6 +290,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ナ",
         katakanaImgURL: "",
+        row: "な行",
     },
     {
         romaji: "ni",
@@ -258,6 +298,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ニ",
         katakanaImgURL: "",
+        row: "な行",
     },
     {
         romaji: "nu",
@@ -265,6 +306,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ヌ",
         katakanaImgURL: "",
+        row: "な行",
     },
     {
         romaji: "ne",
@@ -272,6 +314,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ネ",
         katakanaImgURL: "",
+        row: "な行",
     },
     {
         romaji: "no",
@@ -279,6 +322,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ノ",
         katakanaImgURL: "",
+        row: "な行",
     },
     {
         romaji: "ha",
@@ -286,6 +330,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ハ",
         katakanaImgURL: "",
+        row: "は行",
     },
     {
         romaji: "ba",
@@ -293,6 +338,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "バ",
         katakanaImgURL: "",
+        row: "ば行",
     },
     {
         romaji: "pa",
@@ -300,6 +346,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "パ",
         katakanaImgURL: "",
+        row: "ぱ行",
     },
     {
         romaji: "hi",
@@ -307,6 +354,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ヒ",
         katakanaImgURL: "",
+        row: "は行",
     },
     {
         romaji: "bi",
@@ -314,6 +362,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ビ",
         katakanaImgURL: "",
+        row: "ば行",
     },
     {
         romaji: "pi",
@@ -321,6 +370,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ピ",
         katakanaImgURL: "",
+        row: "ぱ行",
     },
     {
         romaji: "hu",
@@ -328,6 +378,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "フ",
         katakanaImgURL: "",
+        row: "は行",
     },
     {
         romaji: "bu",
@@ -335,6 +386,15 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ブ",
         katakanaImgURL: "",
+        row: "ば行",
+    },
+    {
+        romaji: "pu",
+        hiragana: "ぷ",
+        hiraganaImgURL: "",
+        katakana: "プ",
+        katakanaImgURL: "",
+        row: "ぱ行",
     },
     {
         romaji: "he",
@@ -342,6 +402,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ヘ",
         katakanaImgURL: "",
+        row: "は行",
     },
     {
         romaji: "be",
@@ -349,6 +410,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ベ",
         katakanaImgURL: "",
+        row: "ば行",
     },
     {
         romaji: "pe",
@@ -356,6 +418,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ペ",
         katakanaImgURL: "",
+        row: "ぱ行",
     },
     {
         romaji: "ho",
@@ -363,6 +426,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ホ",
         katakanaImgURL: "",
+        row: "は行",
     },
     {
         romaji: "bo",
@@ -370,6 +434,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ボ",
         katakanaImgURL: "",
+        row: "ば行",
     },
     {
         romaji: "po",
@@ -377,6 +442,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ポ",
         katakanaImgURL: "",
+        row: "ぱ行",
     },
     {
         romaji: "ma",
@@ -384,6 +450,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "マ",
         katakanaImgURL: "",
+        row: "ま行",
     },
     {
         romaji: "mi",
@@ -391,6 +458,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ミ",
         katakanaImgURL: "",
+        row: "ま行",
     },
     {
         romaji: "mu",
@@ -398,6 +466,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ム",
         katakanaImgURL: "",
+        row: "ま行",
     },
     {
         romaji: "me",
@@ -405,6 +474,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "メ",
         katakanaImgURL: "",
+        row: "ま行",
     },
     {
         romaji: "mo",
@@ -412,6 +482,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "モ",
         katakanaImgURL: "",
+        row: "ま行",
     },
     {
         romaji: "ya",
@@ -419,6 +490,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ヤ",
         katakanaImgURL: "",
+        row: "や行",
     },
     {
         romaji: "yu",
@@ -426,6 +498,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ユ",
         katakanaImgURL: "",
+        row: "や行",
     },
     {
         romaji: "yo",
@@ -433,6 +506,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ヨ",
         katakanaImgURL: "",
+        row: "や行",
     },
     {
         romaji: "ra",
@@ -440,6 +514,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ラ",
         katakanaImgURL: "",
+        row: "ら行",
     },
     {
         romaji: "ri",
@@ -447,6 +522,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "リ",
         katakanaImgURL: "",
+        row: "ら行",
     },
     {
         romaji: "ru",
@@ -454,6 +530,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ル",
         katakanaImgURL: "",
+        row: "ら行",
     },
     {
         romaji: "re",
@@ -461,6 +538,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "レ",
         katakanaImgURL: "",
+        row: "ら行",
     },
     {
         romaji: "ro",
@@ -468,6 +546,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ロ",
         katakanaImgURL: "",
+        row: "ら行",
     },
     {
         romaji: "wa",
@@ -475,6 +554,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ワ",
         katakanaImgURL: "",
+        row: "わ行",
     },
     {
         romaji: "wo",
@@ -482,6 +562,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ヲ",
         katakanaImgURL: "",
+        row: "わ行",
     },
     {
         romaji: "n",
@@ -489,6 +570,7 @@ const choiceData = [
         hiraganaImgURL: "",
         katakana: "ン",
         katakanaImgURL: "",
+        row: "わ行",
     }
 ];
 
