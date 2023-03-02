@@ -28,7 +28,7 @@ function Game() {
             {/* shows scores in terms of ice-cream scope*/}
             <ScoreDisplay score={score}/>
             {/* shows あいうえお with stroke .gif */}
-            <Question question={} answer={answer}/>
+            <Question answer={answer}/>
             {/* bubbles for users to select */}
             <Choices answer={answer} choiceLetters={choiceLetters} score={score} setScore={setScore}/>
             {/* hexagons */}
