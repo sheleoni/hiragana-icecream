@@ -98,7 +98,7 @@ const choiceData = [
         hiragana: "け",
         hiraganaImgURL: "",
         katakana: "ケ",
-        katakanaImg: ""
+        katakanaImg: "",
         row: "か行",
     },
     {

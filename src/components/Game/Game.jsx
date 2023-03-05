@@ -6,6 +6,7 @@ import Progress from "../../components/Progress/index.js";
 import ScoreDisplay from "../../components/ScoreDisplay/index.js";
 import scoreData from "./scoreData.js";
 import choiceData from "./choiceData.js";
+import optionGroup from "./optionGroup.js";
 
 function Game() {
 
@@ -20,29 +21,71 @@ function Game() {
             romaji: "a",
             hiragana: "あ",
             hiraganaImgURL:
-                "https://res.cloudinary.com/dd1dw34dc/image/upload/v1676767333/hiragana_game/%E3%81%82_stroke_hgeopi.gif"
+                "https://res.cloudinary.com/dd1dw34dc/image/upload/v1676767333/hiragana_game/%E3%81%82_stroke_hgeopi.gif",
+            row: "あ行",
         });
+
+    /**
+     * return the array of X行 depending on the question displayed
+     *
+     * question.row = あ行
+     * choices[currentQuestion.row] = ['a', 'i', 'u', 'e', 'o']
+     *
+     */
+
+    /**
+     *
+     * const choices = {
+     *     'あ行': ['a', 'i', 'u', 'e', 'o'],
+     *     'か行': ['ka', 'ki', 'ku', 'ke', 'ko'],
+     *     'が行': ['ga', 'gi', 'gu', 'ge', 'go'],
+     *     'さ行': ['sa', 'shi', 'su', 'se', 'so'],
+     *
+     * const choiceData = [
+     *     {
+     *         romaji: "a",
+     *         hiragana: "あ",
+     *         hiraganaImgURL:
+     *             "https://res.cloudinary.com/dd1dw34dc/image/upload/v1676767333/hiragana_game/%E3%81%82_stroke_hgeopi.gif",
+     *         katakana: "ア",
+     *         katakanaImgURL: "",
+     *         row: "あ行",
+     *     },
+     *     {
+     *         romaji: "i",
+     *         hiragana: "い",
+     *         hiraganaImgURL: "",
+     *         katakana: "イ",
+     *         katakanaImgURL: "",
+     *         row: "あ行",
+     *
+     *     },
+     */
+
+
+        // goal: make choiceLetter only return X行 array,
+        // e.g. the question
 
 
     const choiceLetters = choiceData;
 
-    const getRandomLetter = () => {
+    const getRandomLetter = (choiceData) => {
         const randomIndex = Math.floor(Math.random() * choiceData.length);
         const currentQuestionData = choiceData[randomIndex];
         return {
             hiragana: currentQuestionData.hiragana,
             hiraganaImgURL: currentQuestionData.hiraganaImgURL,
-            romaji: currentQuestionData.romaji
+            romaji: currentQuestionData.romaji,
+            row: currentQuestionData.row,
         }
     }
 
-    const currentQuestion = getRandomLetter();
-
-    console.log(currentQuestion);
-    console.log("↑ currentQuestion");
+    const multipleChoices = optionGroup[question.row]
+    // const currentQuestion = getRandomLetter();
 
     return (
         <>
+            {multipleChoices}
             <button onClick={() => console.log(getRandomLetter())}>🔀</button>
             <section className="gameInterface">
                 {/* shows scores in terms of ice-cream scope*/}
@@ -51,7 +94,12 @@ function Game() {
                 <Question question={question} setQuestion={setQuestion} answer={answer}
                           choiceData={choiceData} getRandomLetter={getRandomLetter}/>
                 {/* bubbles for users to select */}
-                <Choices answer={answer} choiceLetters={choiceLetters} score={score} setScore={setScore}/>
+                <Choices answer={answer}
+                         multipleChoices={multipleChoices}
+                         choiceLetters={choiceLetters}
+                         choiceData={choiceData}
+                         score={score}
+                         setScore={setScore}/>
                 {/* hexagons */}
                 <Progress choiceLetters={choiceLetters}/>
             </section>

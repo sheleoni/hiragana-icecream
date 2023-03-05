@@ -15,3 +15,5 @@ const choices = {
     'ら行': ['ra', 'ri', 'ru', 're', 'ro'],
     'わ行': ['wa', 'wo', 'n'],
 };
+
+export default choices;

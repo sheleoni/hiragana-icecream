@@ -1,9 +1,7 @@
 import React from 'react';
 import styles from './Choices.module.css';
 
-function Choices({answer, choiceLetters, score, setScore}) {
-
-
+function Choices({answer, multipleChoices, choiceLetters, choiceData, score, setScore}) {
     const checkAnswer = (input, answer) => {
         if (input === answer) {
             const nextScore = {...score};
@@ -15,9 +13,8 @@ function Choices({answer, choiceLetters, score, setScore}) {
         }
     }
 
-
     return <section className={styles.choiceArea}>
-        {choiceLetters.slice(0, 5).map((choice) => {
+        {multipleChoices.map((choice) => {
             return (
                 <section key={choice.romaji} className={styles.choiceArea__bubbleContainer}
                          onClick={() => checkAnswer(choice.hiragana, answer)}>
