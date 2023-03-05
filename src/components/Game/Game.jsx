@@ -25,48 +25,6 @@ function Game() {
             row: "あ行",
         });
 
-    /**
-     * return the array of X行 depending on the question displayed
-     *
-     * question.row = あ行
-     * choices[currentQuestion.row] = ['a', 'i', 'u', 'e', 'o']
-     *
-     */
-
-    /**
-     *
-     * const choices = {
-     *     'あ行': ['a', 'i', 'u', 'e', 'o'],
-     *     'か行': ['ka', 'ki', 'ku', 'ke', 'ko'],
-     *     'が行': ['ga', 'gi', 'gu', 'ge', 'go'],
-     *     'さ行': ['sa', 'shi', 'su', 'se', 'so'],
-     *
-     * const choiceData = [
-     *     {
-     *         romaji: "a",
-     *         hiragana: "あ",
-     *         hiraganaImgURL:
-     *             "https://res.cloudinary.com/dd1dw34dc/image/upload/v1676767333/hiragana_game/%E3%81%82_stroke_hgeopi.gif",
-     *         katakana: "ア",
-     *         katakanaImgURL: "",
-     *         row: "あ行",
-     *     },
-     *     {
-     *         romaji: "i",
-     *         hiragana: "い",
-     *         hiraganaImgURL: "",
-     *         katakana: "イ",
-     *         katakanaImgURL: "",
-     *         row: "あ行",
-     *
-     *     },
-     */
-
-
-        // goal: make choiceLetter only return X行 array,
-        // e.g. the question
-
-
     const choiceLetters = choiceData;
 
     const getRandomLetter = (choiceData) => {
@@ -80,8 +38,6 @@ function Game() {
         }
     }
 
-    // setQuestion as getRandomLetter
-    // setQuestion(getRandomLetter(choiceData))
 
     const updateQuestion = (choiceData) => {
         setQuestion(getRandomLetter(choiceData));
@@ -90,21 +46,20 @@ function Game() {
 
     const multipleChoices = optionGroup[question.row]
 
-    // should return ["a", "i", "u", "e", "o"] if it's あ、い、う、え、or、お
-    // const currentQuestion = getRandomLetter();
 
     return (
         <>
-            multiple choices: {multipleChoices}
-            {choiceData.length}
             <button onClick={() => updateQuestion(choiceData)}>🔀</button>
 
             <section className="gameInterface">
                 {/* shows scores in terms of ice-cream scope*/}
                 <ScoreDisplay score={score}/>
                 {/* shows あいうえお with stroke .gif */}
-                <Question question={question} setQuestion={setQuestion} answer={answer}
-                          choiceData={choiceData} getRandomLetter={getRandomLetter}/>
+                <Question question={question}
+                          setQuestion={setQuestion}
+                          answer={answer}
+                          updateQuestion={updateQuestion}
+                          choiceData={choiceData}/>
                 {/* bubbles for users to select */}
                 <Choices answer={answer}
                          multipleChoices={multipleChoices}
