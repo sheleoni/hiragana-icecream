@@ -1,14 +1,7 @@
 import React from 'react';
 import styles from './Question.module.css'
 
-function Question({question, setQuestion, answer, getRandomLetter}) {
-
-    // const displayImage = () => {
-    //     return <img className={styles.questionImage}
-    //                 src={question.hiraganaImgURL}
-    //                 alt={question.hiragana}/>
-    // }
-
+function Question({question, answer, updateQuestion, choiceData}) {
 
     const imgPath = question.hiraganaImgURL;
 
@@ -27,21 +20,12 @@ function Question({question, setQuestion, answer, getRandomLetter}) {
         }
 
     }
-    const getNextQuestion = () => {
-        console.log("getting next question!")
-        const newQuestion = getRandomLetter();
-        setQuestion({
-            hiragana: newQuestion.hiragana,
-            hiraganaImgURL: newQuestion.hiraganaImgURL,
-            romaji: newQuestion.romaji
-        });
-    };
 
 
     return (
         <section className={styles.question}
                  onClick={() => {
-                     getNextQuestion()
+                     updateQuestion(choiceData)
                  }}>
             current answer is : {question.hiragana}
             {questionImage()}

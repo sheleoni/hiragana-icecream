@@ -4,7 +4,7 @@ import Hexagon from "../Hexagon/index.js";
 
 function Progress({choiceLetters}) {
     return <section className={styles.progress}>
-        {choiceLetters.map((letter) => {
+        {choiceLetters.slice(0, 5).map((letter) => {
             return (
                 <Hexagon key={letter.romaji} choiceLetter={letter.hiragana}/>
             )

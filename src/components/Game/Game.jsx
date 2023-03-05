@@ -6,6 +6,7 @@ import Progress from "../../components/Progress/index.js";
 import ScoreDisplay from "../../components/ScoreDisplay/index.js";
 import scoreData from "./scoreData.js";
 import choiceData from "./choiceData.js";
+import optionGroup from "./optionGroup.js";
 
 function Game() {
 
@@ -20,38 +21,52 @@ function Game() {
             romaji: "a",
             hiragana: "あ",
             hiraganaImgURL:
-                "https://res.cloudinary.com/dd1dw34dc/image/upload/v1676767333/hiragana_game/%E3%81%82_stroke_hgeopi.gif"
+                "https://res.cloudinary.com/dd1dw34dc/image/upload/v1676767333/hiragana_game/%E3%81%82_stroke_hgeopi.gif",
+            row: "あ行",
         });
-
 
     const choiceLetters = choiceData;
 
-    const getRandomLetter = () => {
+    const getRandomLetter = (choiceData) => {
         const randomIndex = Math.floor(Math.random() * choiceData.length);
         const currentQuestionData = choiceData[randomIndex];
         return {
             hiragana: currentQuestionData.hiragana,
             hiraganaImgURL: currentQuestionData.hiraganaImgURL,
-            romaji: currentQuestionData.romaji
+            romaji: currentQuestionData.romaji,
+            row: currentQuestionData.row,
         }
     }
 
-    const currentQuestion = getRandomLetter();
 
-    console.log(currentQuestion);
-    console.log("↑ currentQuestion");
+    const updateQuestion = (choiceData) => {
+        setQuestion(getRandomLetter(choiceData));
+    };
+
+
+    const multipleChoices = optionGroup[question.row]
+
 
     return (
         <>
-            <button onClick={() => console.log(getRandomLetter())}>🔀</button>
+            <button onClick={() => updateQuestion(choiceData)}>🔀</button>
+
             <section className="gameInterface">
                 {/* shows scores in terms of ice-cream scope*/}
                 <ScoreDisplay score={score}/>
                 {/* shows あいうえお with stroke .gif */}
-                <Question question={question} setQuestion={setQuestion} answer={answer}
-                          choiceData={choiceData} getRandomLetter={getRandomLetter}/>
+                <Question question={question}
+                          setQuestion={setQuestion}
+                          answer={answer}
+                          updateQuestion={updateQuestion}
+                          choiceData={choiceData}/>
                 {/* bubbles for users to select */}
-                <Choices answer={answer} choiceLetters={choiceLetters} score={score} setScore={setScore}/>
+                <Choices answer={answer}
+                         multipleChoices={multipleChoices}
+                         choiceLetters={choiceLetters}
+                         choiceData={choiceData}
+                         score={score}
+                         setScore={setScore}/>
                 {/* hexagons */}
                 <Progress choiceLetters={choiceLetters}/>
             </section>
