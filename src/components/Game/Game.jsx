@@ -80,13 +80,25 @@ function Game() {
         }
     }
 
+    // setQuestion as getRandomLetter
+    // setQuestion(getRandomLetter(choiceData))
+
+    const updateQuestion = (choiceData) => {
+        setQuestion(getRandomLetter(choiceData));
+    };
+
+
     const multipleChoices = optionGroup[question.row]
+
+    // should return ["a", "i", "u", "e", "o"] if it's あ、い、う、え、or、お
     // const currentQuestion = getRandomLetter();
 
     return (
         <>
-            {multipleChoices}
-            <button onClick={() => console.log(getRandomLetter())}>🔀</button>
+            multiple choices: {multipleChoices}
+            {choiceData.length}
+            <button onClick={() => updateQuestion(choiceData)}>🔀</button>
+
             <section className="gameInterface">
                 {/* shows scores in terms of ice-cream scope*/}
                 <ScoreDisplay score={score}/>
