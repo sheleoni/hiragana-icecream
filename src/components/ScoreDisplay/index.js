@@ -1,2 +1,2 @@
-export * from './Score.jsx';
-export {default} from './Score.jsx';
+export * from './ScoreDisplay.jsx';
+export {default} from './ScoreDisplay.jsx';
