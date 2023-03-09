@@ -62,6 +62,7 @@ function Game() {
                           choiceData={choiceData}/>
                 {/* bubbles for users to select */}
                 <Choices answer={answer}
+                         question={question}
                          multipleChoices={multipleChoices}
                          choiceLetters={choiceLetters}
                          choiceData={choiceData}
