@@ -4,6 +4,7 @@ import Question from "../../components/Question/index.js";
 import Choices from "../../components/Choices/index.js";
 import Progress from "../../components/Progress/index.js";
 import ScoreDisplay from "../../components/ScoreDisplay/index.js";
+import QuestionFilter from "../QuestionFilter/index.js";
 import scoreData from "./scoreData.js";
 import choiceData from "./choiceData.js";
 import optionGroup from "./optionGroup.js";
@@ -50,6 +51,7 @@ function Game() {
     return (
         <>
             <button onClick={() => updateQuestion(choiceData)}>🔀</button>
+            <QuestionFilter optionGroup={optionGroup}/>
 
             <section className="gameInterface">
                 {/* shows scores in terms of ice-cream scope*/}

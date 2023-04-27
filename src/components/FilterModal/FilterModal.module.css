@@ -1,0 +1,14 @@
+.background {
+    background: #565cc2;
+    border-radius: 10px;
+    width: fit-content;
+    padding-inline: 5%;
+    padding-block: 5px;
+    position: absolute;
+}
+
+.closeButton {
+    position: absolute;
+    left: 5px;
+    text-align: left;
+}
