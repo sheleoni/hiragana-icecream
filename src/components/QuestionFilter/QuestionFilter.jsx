@@ -3,21 +3,22 @@ import FilterModal from "../FilterModal/index.js";
 
 function QuestionFilter({optionGroup}) {
 
-    const [showModal, setShowModal] = React.useState(false);
+    const [modalIsOpen, setModalIsOpen] = React.useState(false);
 
     console.log("showModal is currently:");
-    console.log(showModal);
+    console.log(modalIsOpen);
 
     function toggleModal(showModal) {
-        return setShowModal(!showModal);
+        return setModalIsOpen(!showModal);
     }
 
     return (
         <>
-            <button onClick={() => toggleModal(showModal)}>
+            <button onClick={() => toggleModal(modalIsOpen)}>
                 ⏳
             </button>
-            {showModal && <FilterModal optionGroup={optionGroup} setShowModal={setShowModal}/>}
+            {modalIsOpen &&
+                <FilterModal optionGroup={optionGroup} modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen}/>}
         </>
     );
 }
