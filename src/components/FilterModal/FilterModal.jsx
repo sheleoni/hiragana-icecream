@@ -3,54 +3,49 @@ import styles from './FilterModal.module.css'
 import filterModalData from './fitlerModalData'
 import {Dialog, Tab} from "@headlessui/react";
 import ErrorBoundary from "../ErrorBoundary/index.js";
+import selectionState from "./selectionState";
 
 function FilterModal({optionGroup, modalIsOpen, setModalIsOpen}) {
+
 
     const HIRAGANA_MODE = 'hiragana';
     const KATAKANA_MODE = 'katakana';
 
-    const checkBoxList = {
-        hiragana: [
-            'あ',
-            'か',
-            'さ',
-            'た',
-            'な',
-            'は',
-            'ま',
-            'や',
-            'ら',
-            'わ',
-            'が',
-            'ざ',
-            'だ',
-            'ば',
-            'ぱ'
-        ],
-        katakana: [
-            'ア',
-            'カ',
-            'サ',
-            'タ',
-            'ナ',
-            'ハ',
-            'マ',
-            'ヤ',
-            'ラ',
-            'ワ',
-            'ガ',
-            'ザ',
-            'ダ',
-            'バ',
-            'パ'
-        ]
+    const [selectedCharacters, setSelectedCharacters] = React.useState(selectionState);
 
-    }
+
+    const hiraganaChars = Object.keys(selectionState.hiragana);
+    const katakanaChars = Object.keys(selectionState.katakana);
 
 
     const [characterSet, setCharacterSet] = React.useState(HIRAGANA_MODE);
+    const capitalizedCharacterSet = characterSet.charAt(0).toUpperCase() + characterSet.slice(1);
+    const isCurrentCharacterSetAllSelected = (characterSet === HIRAGANA_MODE ? hiraganaChars : katakanaChars).every((char) => selectedCharacters[characterSet][char]);
 
-    console.log(filterModalData);
+    const handleSelectAll = (checked) => {
+        const updatedCharacters = {
+            ...selectedCharacters,
+            [characterSet]: {
+                ...selectedCharacters[characterSet],
+            }
+        };
+
+        (characterSet === HIRAGANA_MODE ? hiraganaChars : katakanaChars).forEach((char) => {
+            updatedCharacters[characterSet][char] = checked;
+        });
+
+        setSelectedCharacters(updatedCharacters);
+    };
+
+
+    const selectedCharsHiragana = Object.keys(selectedCharacters[HIRAGANA_MODE])
+        .filter(char => selectedCharacters[HIRAGANA_MODE][char]);
+
+    const selectedCharsKatakana = Object.keys(selectedCharacters[KATAKANA_MODE])
+        .filter(char => selectedCharacters[KATAKANA_MODE][char]);
+
+    const selectedCharsString = [...selectedCharsHiragana, ...selectedCharsKatakana].join(',');
+
 
     return (
         <>
@@ -64,10 +59,14 @@ function FilterModal({optionGroup, modalIsOpen, setModalIsOpen}) {
                 />
                 <Dialog.Panel className={styles.panel}>
                     <Dialog.Title>Choose Your Game Mode</Dialog.Title>
-                    <Dialog.Description>
+                    <Dialog.Description as='div'>
 
-                        Toggle between Hiragana and Katakana
-                        Current set: {characterSet}
+                        <p>Selected groups:</p>
+                        <p className={styles.selectedCharactersDisplay}>{selectedCharsString}</p>
+
+                        {/*{selectedCharacters}*/}
+
+
                         <Tab.Group onChange={(index) => {
                             console.log('Changed selected tab to:', index)
                             if (index === 0) {
@@ -83,22 +82,54 @@ function FilterModal({optionGroup, modalIsOpen, setModalIsOpen}) {
                             </Tab.List>
                         </Tab.Group>
 
-                        <ol className={styles.letterCheckbox}>
-                            {checkBoxList[characterSet].map((letter) => {
+                        <>
+                            <ol className={styles.letterCheckbox}>
+                                {(characterSet === HIRAGANA_MODE ? hiraganaChars : katakanaChars).map((letter) => {
+                                    return (
+                                        <li key={letter} className={styles.filterItem}>
+                                            <input
+                                                type="checkbox"
+                                                checked={selectedCharacters[characterSet][letter] === true}
+                                                onChange={(event) => {
+                                                    setSelectedCharacters(
+                                                        {
+                                                            ...selectedCharacters,
+                                                            [characterSet]: {
+                                                                ...selectedCharacters[characterSet],
+                                                                [letter]: event.target.checked
+                                                            }
+                                                            // selectedCharacters[characterSet][letter] === true
+                                                        }
+                                                    )
+                                                    console.log("These are the selected Characters");
+                                                    console.log(selectedCharacters);
+                                                    event.target.checked;
+                                                }
+                                                }
+                                                id={letter}/>
+                                            <label htmlFor={letter}>{letter}行</label>
+                                        </li>
 
-                                return (
-                                    <li key={letter} className={styles.filterItem}>
-                                        <input type="checkbox" id={letter}/>
-                                        <label htmlFor={letter}>{letter}行</label>
-                                    </li>
+                                    )
+                                })}
+                                <li className={`${styles.filterItem} ${styles.selectAllCheckbox}`}>
+                                    <input
+                                        type="checkbox"
+                                        id={`select-all-${characterSet}`}
+                                        checked={(characterSet === HIRAGANA_MODE ? hiraganaChars : katakanaChars)
+                                            .every(char => selectedCharacters[characterSet][char])}
+                                        onChange={event => handleSelectAll(event.target.checked)}
+                                    />
+                                    <label htmlFor={`select-all-${characterSet}`}>
+                                        {isCurrentCharacterSetAllSelected ?
+                                            `Clear All ${capitalizedCharacterSet}` :
+                                            `Select All ${capitalizedCharacterSet}`}
 
-                                )
-                            })}
-                            <li className={styles.filterItem}>
-                                <input type="checkbox" id="select-all"/>
-                                <label htmlFor="select-all">Select All</label>
-                            </li>
-                        </ol>
+                                        {/*{Object.values(selectedCharacters[characterSet]).every(char => selectedCharacters[characterSet][char])}*/}
+                                    </label>
+                                </li>
+                            </ol>
+                        </>
                         {/*    switch here */}
                     </Dialog.Description>
 
@@ -110,8 +141,16 @@ function FilterModal({optionGroup, modalIsOpen, setModalIsOpen}) {
                     {/*        </li>*/}
                     {/*    )*/}
                     {/*})}*/}
-                    <button onClick={() => setModalIsOpen(false)}>Cancel</button>
-                    <button onClick={() => setModalIsOpen(false)}>Confirm</button>
+                    <button onClick={() => {
+                        setModalIsOpen(false)
+                    }}>
+                        Cancel
+                    </button>
+                    <button onClick={() => {
+                        setModalIsOpen(false)
+                    }}>
+                        Confirm
+                    </button>
                 </Dialog.Panel>
             </Dialog>
         </>
