@@ -1,0 +1,71 @@
+.wrapper {
+    position: fixed;
+    display: grid;
+    place-content: center;
+    inset: 0px;
+    z-index: 41;
+}
+
+.backdrop {
+    position: absolute;
+    inset: 0;
+    background: hsl(0deg 0% 0% / 0.75);
+}
+
+.background {
+    background: #565cc2;
+    border-radius: 10px;
+    width: fit-content;
+    padding-inline: 5%;
+    padding-block: 5px;
+    position: absolute;
+}
+
+.gameModeOption {
+    font-size: 1.25rem;
+}
+
+.filterItem {
+    width: fit-content;
+    display: flex;
+    justify-content: space-between;
+    background: hsl(237, 86%, 64%, 0.2);
+    border-radius: 10px;
+    padding-inline: 10px;
+}
+
+.letterCheckbox {
+    list-style: none;
+    display: grid;
+    gap: 10px;
+    /*place-items: center;*/
+    font-size: 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
+
+}
+
+.panel {
+    position: relative;
+    background: white;
+    color: #535bf2;
+    border-radius: 8px;
+    padding: 32px;
+    max-width: 60vw;
+}
+
+.selectedCharactersDisplay {
+    width: 80%;
+    text-align: center;
+}
+
+.selectAllCheckbox {
+    place-self: center;
+    color: red;
+    grid-column: 1 / 4;
+}
+
+.closeButton {
+    position: absolute;
+    left: 5px;
+    text-align: left;
+}
