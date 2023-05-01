@@ -1,10 +1,14 @@
 import React from 'react';
 import styles from './Question.module.css'
+import {LevelFilterContext} from "../../contexts/LevelFilterContext.jsx";
 
 function Question({question, answer, updateQuestion, choiceData}) {
 
     const imgPath = question.hiraganaImgURL;
+    const {levelFilter, setLevelFilter} = React.useContext(LevelFilterContext);
 
+    console.log('Level Filter from Question component:')
+    console.log(levelFilter)
     const questionImage = () => {
         if (imgPath) {
             return (
