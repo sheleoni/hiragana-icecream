@@ -15,37 +15,42 @@ function FilterModal({optionGroup, modalIsOpen, setModalIsOpen}) {
         setLevelFilter
     } = React.useContext(LevelFilterContext);
 
+    // Copy context values to local state so that filter's context data is only updated when user confirms filter choices
+    const [localLevelFilter, setLocalLevelFilter] = React.useState({...levelFilter})
 
-    const hiraganaChars = Object.keys(levelFilter.hiragana);
-    const katakanaChars = Object.keys(levelFilter.katakana);
+
+    const hiraganaChars = Object.keys(localLevelFilter.hiragana);
+    const katakanaChars = Object.keys(localLevelFilter.katakana);
 
     const [characterSet, setCharacterSet] = React.useState(HIRAGANA_MODE);
     const capitalizedCharacterSet = characterSet.charAt(0).toUpperCase() + characterSet.slice(1);
     const isCurrentCharacterSetAllSelected =
         (characterSet === HIRAGANA_MODE ? hiraganaChars : katakanaChars)
-            .every((char) => levelFilter[characterSet][char]);
+            .every((char) => localLevelFilter[characterSet][char]);
 
+    const nextCharacters = {
+        ...localLevelFilter,
+        [characterSet]: {
+            ...localLevelFilter[characterSet],
+        }
+    };
     const handleSelectAll = (checked) => {
-        const updatedCharacters = {
-            ...levelFilter,
-            [characterSet]: {
-                ...levelFilter[characterSet],
-            }
-        };
-
         (characterSet === HIRAGANA_MODE ? hiraganaChars : katakanaChars)
             .forEach((char) => {
-                updatedCharacters[characterSet][char] = checked;
+                nextCharacters[characterSet][char] = checked;
             });
-
-        setLevelFilter(updatedCharacters);
+        setLocalLevelFilter(nextCharacters);
     };
 
+    const submitModalData = () => {
+        setLevelFilter(nextCharacters)
+    }
 
-    const selectedCharsHiragana = Object.keys(levelFilter[HIRAGANA_MODE])
-        .filter(char => levelFilter[HIRAGANA_MODE][char]);
-    const selectedCharsKatakana = Object.keys(levelFilter[KATAKANA_MODE])
-        .filter(char => levelFilter[KATAKANA_MODE][char]);
+
+    const selectedCharsHiragana = Object.keys(localLevelFilter[HIRAGANA_MODE])
+        .filter(char => localLevelFilter[HIRAGANA_MODE][char]);
+    const selectedCharsKatakana = Object.keys(localLevelFilter[KATAKANA_MODE])
+        .filter(char => localLevelFilter[KATAKANA_MODE][char]);
     const selectedCharsString = [...selectedCharsHiragana, ...selectedCharsKatakana].join(',');
 
     return (
@@ -61,13 +66,9 @@ function FilterModal({optionGroup, modalIsOpen, setModalIsOpen}) {
                 <Dialog.Panel className={styles.panel}>
                     <Dialog.Title>Choose Your Game Mode</Dialog.Title>
                     <Dialog.Description as='div'>
-
                         <p>Selected groups:</p>
                         <p className={styles.selectedCharactersDisplay}>{selectedCharsString}</p>
-
-
                         <Tab.Group onChange={(index) => {
-                            console.log('Changed selected tab to:', index)
                             if (index === 0) {
                                 setCharacterSet(HIRAGANA_MODE)
                             }
@@ -88,19 +89,19 @@ function FilterModal({optionGroup, modalIsOpen, setModalIsOpen}) {
                                         <li key={letter} className={styles.filterItem}>
                                             <input
                                                 type="checkbox"
-                                                checked={levelFilter[characterSet][letter] === true}
+                                                checked={localLevelFilter[characterSet][letter] === true}
                                                 onChange={(event) => {
-                                                    setLevelFilter(
+                                                    setLocalLevelFilter(
                                                         {
-                                                            ...levelFilter,
+                                                            ...localLevelFilter,
                                                             [characterSet]: {
-                                                                ...levelFilter[characterSet],
+                                                                ...localLevelFilter[characterSet],
                                                                 [letter]: event.target.checked
                                                             }
                                                         }
                                                     )
                                                     console.log("These are the selected Characters");
-                                                    console.log(levelFilter);
+                                                    console.log(localLevelFilter);
                                                     event.target.checked;
                                                 }
                                                 }
@@ -115,7 +116,7 @@ function FilterModal({optionGroup, modalIsOpen, setModalIsOpen}) {
                                         type="checkbox"
                                         id={`select-all-${characterSet}`}
                                         checked={(characterSet === HIRAGANA_MODE ? hiraganaChars : katakanaChars)
-                                            .every(char => levelFilter[characterSet][char])}
+                                            .every(char => localLevelFilter[characterSet][char])}
                                         onChange={event => handleSelectAll(event.target.checked)}
                                     />
                                     <label htmlFor={`select-all-${characterSet}`}>
@@ -131,12 +132,13 @@ function FilterModal({optionGroup, modalIsOpen, setModalIsOpen}) {
 
 
                     <button onClick={() => {
-                        setModalIsOpen(false)
+                        setModalIsOpen(false);
                     }}>
                         Cancel
                     </button>
                     <button onClick={() => {
-                        setModalIsOpen(false)
+                        submitModalData();
+                        setModalIsOpen(false);
                     }}>
                         Confirm
                     </button>
