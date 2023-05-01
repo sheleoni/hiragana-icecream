@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from "react-dom/client";
 import {useState} from 'react';
 import Question from "../../components/Question/index.js";
 import Choices from "../../components/Choices/index.js";
