@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Question.module.css'
 import {LevelFilterContext} from "../../contexts/LevelFilterContext.jsx";
+import questionPool from "../Game/questionPool.js";
 
 function Question({question, answer, updateQuestion, choiceData}) {
 
@@ -9,6 +10,8 @@ function Question({question, answer, updateQuestion, choiceData}) {
 
     console.log('Level Filter from Question component:')
     console.log(levelFilter)
+
+    console.log(questionPool, 'the questionPool from Question.jsx')
     const questionImage = () => {
         if (imgPath) {
             return (
@@ -22,7 +25,6 @@ function Question({question, answer, updateQuestion, choiceData}) {
                     {question.hiragana}
                 </p>);
         }
-
     }
 
 
@@ -31,7 +33,8 @@ function Question({question, answer, updateQuestion, choiceData}) {
                  onClick={() => {
                      updateQuestion(choiceData)
                  }}>
-            current answer is : {question.hiragana}
+            <p>current answer is : {question.hiragana}</p>
+            <br/>question pool size: {questionPool.length}
             {questionImage()}
         </section>
     );

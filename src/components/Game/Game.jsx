@@ -24,7 +24,7 @@ function Game() {
             hiragana: "あ",
             hiraganaImgURL:
                 "https://res.cloudinary.com/dd1dw34dc/image/upload/v1676767333/hiragana_game/%E3%81%82_stroke_hgeopi.gif",
-            hiraganahiraganaRow: "あ行",
+            hiraganaRow: "あ行",
             katakanaRow: "ア行"
         });
 

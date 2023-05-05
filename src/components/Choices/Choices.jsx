@@ -4,7 +4,6 @@ import styles from './Choices.module.css';
 function Choices({answer, question, multipleChoices, choiceLetters, choiceData, score, setScore}) {
     const checkAnswer = (input, answer) => {
         if (input === answer) {
-            console.log("correct!")
             const nextScore = {...score};
             nextScore[question.hiragana] = nextScore[question.hiragana] + 1;
             setScore(nextScore);
