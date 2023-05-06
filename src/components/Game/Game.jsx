@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Question from "../../components/Question/index.js";
 import Choices from "../../components/Choices/index.js";
 import Progress from "../../components/Progress/index.js";
@@ -62,13 +62,13 @@ function Game() {
         return sum + currentValue;
     }, 0)
 
-    const [score, setScore] = useState(scoreData);
+    const [score, setScore] = React.useState(scoreData);
     // const [answer, setAnswer] = useState('あ');
 
     const choiceLetters = choiceData;
 
 
-    const [randomQuestion, setRandomQuestion] = useState(getRandomSampleQuestion(questionPool));
+    const [randomQuestion, setRandomQuestion] = React.useState(getRandomSampleQuestion(questionPool));
     const getRandomQuestion = () => {
         const newQuestion = getRandomSampleQuestion(questionPool);
         setRandomQuestion(newQuestion);
