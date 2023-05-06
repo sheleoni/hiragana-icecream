@@ -2,7 +2,8 @@ import React from "react";
 
 const LevelFilterData = {
     hiragana: {
-        'あ': false,
+        // Set あ行 to appear as the initial question pool if use does not select any character
+        'あ': true,
         'か': false,
         'さ': false,
         'た': false,

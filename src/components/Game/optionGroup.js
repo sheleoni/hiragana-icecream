@@ -14,6 +14,21 @@ const choices = {
     'や行': ['ya', 'yu', 'yo'],
     'ら行': ['ra', 'ri', 'ru', 're', 'ro'],
     'わ行': ['wa', 'wo', 'n'],
+    'ア行': ['a', 'i', 'u', 'e', 'o'],
+    'カ行': ['ka', 'ki', 'ku', 'ke', 'ko'],
+    'ガ行': ['ga', 'gi', 'gu', 'ge', 'go'],
+    'サ行': ['sa', 'shi', 'su', 'se', 'so'],
+    'ザ行': ['za', 'ji', 'zu', 'ze', 'zo'],
+    'タ行': ['ta', 'chi', 'tsu', 'te', 'to'],
+    'ダ行': ['da', 'ji', 'zu', 'de', 'do'],
+    'ナ行': ['na', 'ni', 'nu', 'ne', 'no'],
+    'ハ行': ['ha', 'hi', 'fu', 'he', 'ho'],
+    'バ行': ['ba', 'bi', 'bu', 'be', 'bo'],
+    'パ行': ['pa', 'pi', 'pu', 'pe', 'po'],
+    'マ行': ['ma', 'mi', 'mu', 'me', 'mo'],
+    'ヤ行': ['ya', 'yu', 'yo'],
+    'ラ行': ['ra', 'ri', 'ru', 're', 'ro'],
+    'ワ行': ['wa', 'wo', 'n'],
 };
 
 export default choices;
