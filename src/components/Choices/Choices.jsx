@@ -6,7 +6,6 @@ import {sample} from "new-component/src/utils.js";
 
 function Choices({
                      sampleQuestion,
-                     question,
                      questionRow,
                      choiceData,
                      score,
@@ -26,15 +25,10 @@ function Choices({
     const checkAnswer = (input, answer) => {
         if (input === answer) {
             const nextScore = {...score};
-            nextScore[question.hiragana] = nextScore[question.hiragana] + 1;
+            nextScore[sampleQuestion] += 1;
             setScore(nextScore);
         } else {
-            console.log("input is: ")
-            console.log(input);
-            console.log("answer is is: ")
-            console.log(answer);
-            console.log(score[answer] + 1);
-            console.log("try again!")
+            console.log("incorrect. try again!")
         }
     }
 
@@ -44,8 +38,6 @@ function Choices({
     return (
         <section className={styles.choiceArea}>
             <div style={{color: 'red', fontWeight: 'bold'}}>
-                {`the current 行 is : ${questionRow}
-                answer is ${romajiAnswer}`}
 
             </div>
             {filteredQuestionMultipleChoices?.map((choice) => {

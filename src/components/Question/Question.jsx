@@ -20,8 +20,6 @@ function Question({question, sampleQuestion, getRandomQuestion}) {
             );
         }
     }
-
-
     return (
         <section
             className={styles.question}

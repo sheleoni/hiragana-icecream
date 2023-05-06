@@ -57,36 +57,21 @@ function Game() {
     }
 
     const questionRow = getSampleQuestionRow(sampleQuestion)
-    console.log()
 
     const totalScore = Object.values(scoreData).reduce((sum, currentValue) => {
         return sum + currentValue;
     }, 0)
 
     const [score, setScore] = useState(scoreData);
-    const [answer, setAnswer] = useState('あ');
-    const [question, setQuestion] = useState(
-        {
-            romaji: "a",
-            hiragana: "あ",
-            hiraganaImgURL:
-                "https://res.cloudinary.com/dd1dw34dc/image/upload/v1676767333/hiragana_game/%E3%81%82_stroke_hgeopi.gif",
-            hiraganaRow: "あ行",
-            katakanaRow: "ア行"
-        });
+    // const [answer, setAnswer] = useState('あ');
 
     const choiceLetters = choiceData;
-
-
-    // const multipleChoices = optionGroup[`${filteredRowCharacters}行`]
-    const multipleChoices = optionGroup[question.hiraganaRow]
 
 
     const [randomQuestion, setRandomQuestion] = useState(getRandomSampleQuestion(questionPool));
     const getRandomQuestion = () => {
         const newQuestion = getRandomSampleQuestion(questionPool);
         setRandomQuestion(newQuestion);
-        setQuestion(newQuestion); // update the question state with the new question
     };
 
 
@@ -104,13 +89,10 @@ function Game() {
                 <Question
                     getRandomQuestion={getRandomQuestion}
                     sampleQuestion={sampleQuestion}
-                    setQuestion={setQuestion}
-                    answer={answer}
                     choiceData={choiceData}/>
                 {/* bubbles for users to select */}
                 <Choices
                     sampleQuestion={sampleQuestion}
-                    answer={answer}
                     questionRow={questionRow}
                     choiceData={choiceData}
                     score={score}
