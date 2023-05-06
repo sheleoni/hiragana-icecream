@@ -1,37 +1,30 @@
 import React from 'react';
-import styles from './Question.module.css'
-import {LevelFilterContext} from "../../contexts/LevelFilterContext.jsx";
+import styles from './Question.module.css';
 
-function Question({question, answer, updateQuestion, choiceData}) {
+function Question({question, sampleQuestion, getRandomQuestion}) {
+    const imgPath = null;
 
-    const imgPath = question.hiraganaImgURL;
-    const {levelFilter, setLevelFilter} = React.useContext(LevelFilterContext);
-
-    console.log('Level Filter from Question component:')
-    console.log(levelFilter)
     const questionImage = () => {
-        if (imgPath) {
+        if (false) {
             return (
                 <img className={styles.questionImage}
                      src={question.hiraganaImgURL}
-                     alt={question.hiragana}/>
-            )
+                     alt={question.hiragana}
+                />
+            );
         } else {
             return (
                 <p className={styles.questionWord}>
-                    {question.hiragana}
-                </p>);
+                    {sampleQuestion}
+                </p>
+            );
         }
-
     }
-
-
     return (
-        <section className={styles.question}
-                 onClick={() => {
-                     updateQuestion(choiceData)
-                 }}>
-            current answer is : {question.hiragana}
+        <section
+            className={styles.question}
+            onClick={getRandomQuestion}
+        >
             {questionImage()}
         </section>
     );

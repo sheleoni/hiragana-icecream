@@ -1,12 +1,17 @@
 import React from 'react';
 import styles from './Progress.module.css'
 import Hexagon from "../Hexagon/index.js";
+import rowLetters from "../Game/rowLetters.js";
 
-function Progress({choiceLetters}) {
+function Progress({choiceLetters, questionRow}) {
+    const displayList = rowLetters[questionRow]
+    console.log(questionRow, 'questionRow');
+    console.log(displayList, 'this is the displayList')
+
     return <section className={styles.progress}>
-        {choiceLetters.slice(0, 5).map((letter) => {
+        {displayList?.map((letter) => {
             return (
-                <Hexagon key={letter.romaji} choiceLetter={letter.hiragana}/>
+                <Hexagon key={letter} choiceLetter={letter}/>
             )
         })}
 

@@ -5,9 +5,6 @@ function QuestionFilter({optionGroup}) {
 
     const [modalIsOpen, setModalIsOpen] = React.useState(false);
 
-    console.log("showModal is currently:");
-    console.log(modalIsOpen);
-
     function toggleModal(showModal) {
         return setModalIsOpen(!showModal);
     }
