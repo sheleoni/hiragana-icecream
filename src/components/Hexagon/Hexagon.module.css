@@ -73,7 +73,7 @@
 }
 
 .movingWave {
-    margin-block-start: 60px;
+    margin-block-start: 60px; /* controls tide level */
     margin-inline-start: -1px;
     display: inline-block;
     animation: scroll 10s linear infinite;

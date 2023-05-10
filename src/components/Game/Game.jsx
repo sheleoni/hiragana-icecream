@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Question from "../../components/Question/index.js";
 import Choices from "../../components/Choices/index.js";
 import Progress from "../../components/Progress/index.js";
@@ -9,8 +9,15 @@ import choiceData from "./choiceData.js";
 import optionGroup from "./optionGroup.js";
 import {LevelFilterContext} from "../../contexts/LevelFilterContext.jsx";
 import rowLetters from "./rowLetters.js";
+import isOnStreakData from "./isOnStreak.js";
+import tideLevelData from "./tideLevel.js";
 
 function Game() {
+
+    const [questionNumber, setQuestionNumber] = React.useState(0);
+    React.useEffect(() => setQuestionNumber(questionNumber + 1), []);
+    // keeps track of how many questions the user has gone through
+    console.log(questionNumber, 'current questionNumber');
 
     const {levelFilter} = React.useContext(LevelFilterContext);
     const [questionPool, setQuestionPool] = React.useState([]);
@@ -41,42 +48,52 @@ function Game() {
 
     const getRandomSampleQuestion = (questionPool) => {
         const randomIndex = Math.floor(Math.random() * questionPool?.length);
-        console.log(questionPool[randomIndex], 'this is the random question from pool')
-        return questionPool[randomIndex]
+        return questionPool[randomIndex];
     }
 
-    const sampleQuestion = getRandomSampleQuestion(questionPool);
+    const sampleQuestion = React.useMemo(() => {
+        return getRandomSampleQuestion(questionPool)
+    }, [questionNumber]);
 
+    // If current question is 「う」, return the row 「あ行」
     const getSampleQuestionRow = (sampleQuestion) => {
         for (const questionRow in rowLetters) {
             if (rowLetters[questionRow].includes(sampleQuestion)) {
-                return questionRow
+                return questionRow;
             }
         }
         return null;
     }
 
-    const questionRow = getSampleQuestionRow(sampleQuestion)
+    const questionRow = React.useMemo(() => {
+        return getSampleQuestionRow(sampleQuestion);
+    }, [questionNumber]);
+
 
     const totalScore = Object.values(scoreData).reduce((sum, currentValue) => {
         return sum + currentValue;
     }, 0)
 
-    const [score, setScore] = useState(scoreData);
+    const [score, setScore] = React.useState(scoreData);
     // const [answer, setAnswer] = useState('あ');
 
     const choiceLetters = choiceData;
 
 
-    const [randomQuestion, setRandomQuestion] = useState(getRandomSampleQuestion(questionPool));
-    const getRandomQuestion = () => {
+    const [randomQuestion, setRandomQuestion] = React.useState(getRandomSampleQuestion(questionPool));
+    const getRandomQuestion = () => { // get new random question
         const newQuestion = getRandomSampleQuestion(questionPool);
         setRandomQuestion(newQuestion);
+        setQuestionNumber(questionNumber + 1);
     };
+
+    const [isOnStreak, setIsOnStreak] = React.useState(isOnStreakData);
+    const [tideLevel, setTideLevel] = React.useState(tideLevelData);
 
 
     return (
         <>
+            Q{questionNumber}
             <button onClick={getRandomQuestion}>
                 🔀
             </button>
@@ -92,14 +109,21 @@ function Game() {
                     choiceData={choiceData}/>
                 {/* bubbles for users to select */}
                 <Choices
+                    questionNumber={questionNumber}
+                    setQuestionNumber={setQuestionNumber}
                     sampleQuestion={sampleQuestion}
                     questionRow={questionRow}
                     choiceData={choiceData}
                     score={score}
-                    setScore={setScore}/>
+                    setScore={setScore}
+                    isOnStreak={isOnStreak}
+                    setIsOnStreak={setIsOnStreak}
+                    tideLevel={tideLevel}
+                    setTideLevel={setTideLevel}/>
                 {/* hexagons */}
                 <Progress choiceLetters={choiceLetters}
                           questionRow={questionRow}
+                          tideLevel={tideLevel}
                 />
             </section>
         </>

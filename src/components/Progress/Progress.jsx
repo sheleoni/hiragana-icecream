@@ -3,15 +3,13 @@ import styles from './Progress.module.css'
 import Hexagon from "../Hexagon/index.js";
 import rowLetters from "../Game/rowLetters.js";
 
-function Progress({choiceLetters, questionRow}) {
+function Progress({choiceLetters, questionRow, tideLevel}) {
     const displayList = rowLetters[questionRow]
-    console.log(questionRow, 'questionRow');
-    console.log(displayList, 'this is the displayList')
 
     return <section className={styles.progress}>
         {displayList?.map((letter) => {
             return (
-                <Hexagon key={letter} choiceLetter={letter}/>
+                <Hexagon key={letter} choiceLetter={letter} tideLevel={tideLevel}/>
             )
         })}
 
