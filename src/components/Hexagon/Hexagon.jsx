@@ -13,7 +13,6 @@ function Hexagon({choiceLetter, tideLevel}) {
         * tideLevel 5 (fully filled) -> 10px
         *
         * */
-
         switch (tideLevel) {
             case 0:
                 return 120;
@@ -29,6 +28,7 @@ function Hexagon({choiceLetter, tideLevel}) {
                 return 10;
         }
     }
+    const isGlowing = tideLevel[choiceLetter] >= 5;
 
     const tideMarginPixels = tideLevelToPixels(tideLevel[choiceLetter]);
     return (
@@ -36,6 +36,7 @@ function Hexagon({choiceLetter, tideLevel}) {
             <span className={styles.hexagonWrapper}>
                 <span className={styles.letter}>
                     {choiceLetter}
+                    {isGlowing ? '⭐' : ''}
                 </span>
                 {/* adds outline on topmost layer */}
                 <img
@@ -70,6 +71,9 @@ function Hexagon({choiceLetter, tideLevel}) {
                     </div>
                 </div>
             </span>
+            {/* glow when hexagon is fully filled (at maximum tide level) */}
+            {/*{isGlowing ? '⭐' : ''}*/}
+
 
         </>
     );
