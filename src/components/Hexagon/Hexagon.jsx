@@ -28,7 +28,31 @@ function Hexagon({choiceLetter, tideLevel}) {
                 return 10;
         }
     }
-    const isGlowing = tideLevel[choiceLetter] >= 5;
+    const isClickable = tideLevel[choiceLetter] >= 5;
+
+    const Tag = (isClickable ? 'button' : 'img');
+
+    const handleClickHexagon = () => {
+        console.log("clicked hexagonie!")
+        console.log(choiceLetter, 'your choice letter');
+        console.log(`your random icecream's name is: ${randomIceCream}`)
+    }
+
+    const randomIceCream = () => {
+        // TODO: add randomID (probably by crypto.UUID)
+        const iceCreamChoices = {
+            'あ': [{
+                name: "あめ",
+                accent: "↑↓",
+                imgURL: ""
+            }, {}, {}],
+            'い': [{}, {}, {}],
+            'う': [{}, {}, {}],
+            'え': [{}, {}, {}],
+            'お': [{}, {}, {}],
+        }
+        return randomIceCream;
+    }
 
     const tideMarginPixels = tideLevelToPixels(tideLevel[choiceLetter]);
     return (
@@ -36,7 +60,10 @@ function Hexagon({choiceLetter, tideLevel}) {
             <span className={styles.hexagonWrapper}>
                 <span className={styles.letter}>
                     {choiceLetter}
-                    {isGlowing ? '⭐' : ''}
+                    {/*{isClickable ? (<button className={styles.starButton} onClick={() => {*/}
+                    {/*        console.log("clicked star!")*/}
+                    {/*    }}>⭐</button>*/}
+                    {/*) : ''}*/}
                 </span>
                 {/* adds outline on topmost layer */}
                 <img
@@ -45,9 +72,11 @@ function Hexagon({choiceLetter, tideLevel}) {
                 />
                 <div className={styles.hexagonBackgroundContainer}>
                     {/* adds beige background */}
-                    <img
-                        className={styles.hexagonBackground}
+                    {/*TODO: maybe change this img tag to button*/}
+                    <Tag
+                        className={`${styles.hexagonBackground} ${isClickable ? styles.activeHexagon : ''}`}
                         src="https://res.cloudinary.com/dd1dw34dc/image/upload/hiragana_game/Hexagonal_aiueo_2_bmkrho.png"
+                        onClick={isClickable ? handleClickHexagon : null}
                     />
                     <div className={styles.mask1}>
                         <div className={styles.waveWrapper}>
@@ -71,8 +100,6 @@ function Hexagon({choiceLetter, tideLevel}) {
                     </div>
                 </div>
             </span>
-            {/* glow when hexagon is fully filled (at maximum tide level) */}
-            {/*{isGlowing ? '⭐' : ''}*/}
 
 
         </>
