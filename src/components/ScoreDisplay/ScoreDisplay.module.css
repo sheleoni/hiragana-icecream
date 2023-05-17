@@ -1,3 +1,19 @@
+.iceCreamContainer {
+    display: flex;
+    flex-direction: column-reverse;
+    /* make enclosed stacking context for ice cream scoops */
+    isolation: isolate;
+}
+
+.iceCreamListContainer {
+    list-style: none;
+}
+
+.iceCreamScoop {
+    width: 70%;
+    margin-top: -30%;
+}
+
 .scoreContainer {
 
     max-width: 100%;
@@ -6,7 +22,7 @@
     display: grid;
     justify-items: center;
     align-items: center;
-    overflow: hidden;
+    overflow: scroll;
 
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Hexagon.module.css';
 
-function Hexagon({choiceLetter, tideLevel}) {
+function Hexagon({choiceLetter, tideLevel, setTideLevel, setIceCreamScoops, iceCreamChoiceData, iceCreamScoops}) {
     const tideLevelToPixels = (tideLevel) => {
         /* Tide levels corresponding to CSS margin values:
         *
@@ -33,26 +33,28 @@ function Hexagon({choiceLetter, tideLevel}) {
     const Tag = (isClickable ? 'button' : 'img');
 
     const handleClickHexagon = () => {
-        console.log("clicked hexagonie!")
-        console.log(choiceLetter, 'your choice letter');
-        console.log(`your random icecream's name is: ${randomIceCream}`)
+        const newIceCream = randomIceCream(choiceLetter);
+        addIceCream(newIceCream);
+        resetTideLevel();
     }
 
-    const randomIceCream = () => {
-        // TODO: add randomID (probably by crypto.UUID)
-        const iceCreamChoices = {
-            'あ': [{
-                name: "あめ",
-                accent: "↑↓",
-                imgURL: ""
-            }, {}, {}],
-            'い': [{}, {}, {}],
-            'う': [{}, {}, {}],
-            'え': [{}, {}, {}],
-            'お': [{}, {}, {}],
-        }
-        return randomIceCream;
+    const randomIceCream = (choiceLetter) => {
+        const randomIndex = Math.floor(Math.random() * iceCreamChoiceData[choiceLetter].length)
+        return iceCreamChoiceData[choiceLetter][randomIndex];
     }
+
+    const addIceCream = (iceCream) => {
+        const nextIceCream = [...iceCreamScoops, iceCream];
+        setIceCreamScoops(nextIceCream);
+        console.log(iceCreamScoops, 'this is the new iceCreamScoops after updating the state!')
+    }
+
+    const resetTideLevel = () => {
+        const nextTideLevel = {...tideLevel};
+        nextTideLevel[choiceLetter] = 0;
+        setTideLevel(nextTideLevel);
+    }
+
 
     const tideMarginPixels = tideLevelToPixels(tideLevel[choiceLetter]);
     return (

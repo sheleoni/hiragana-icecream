@@ -11,9 +11,12 @@ import {LevelFilterContext} from "../../contexts/LevelFilterContext.jsx";
 import rowLetters from "./rowLetters.js";
 import isOnStreakData from "./isOnStreak.js";
 import tideLevelData from "./tideLevel.js";
+import iceCreamChoices from "./iceCreamStackData.js";
 
 function Game() {
 
+    const iceCreamChoiceData = iceCreamChoices;
+    const [iceCreamScoops, setIceCreamScoops] = React.useState([]);
     const [questionNumber, setQuestionNumber] = React.useState(0);
     React.useEffect(() => setQuestionNumber(questionNumber + 1), []);
     // keeps track of how many questions the user has gone through
@@ -101,7 +104,11 @@ function Game() {
 
             <section className="gameInterface">
                 {/* shows scores in terms of ice-cream scope*/}
-                <ScoreDisplay score={score}/>
+                <ScoreDisplay
+                    score={score}
+                    iceCreamScoops={iceCreamScoops}
+                    iceCreamChoiceData={iceCreamChoiceData}
+                />
                 {/* shows あいうえお with stroke .gif */}
                 <Question
                     getRandomQuestion={getRandomQuestion}
@@ -121,9 +128,14 @@ function Game() {
                     tideLevel={tideLevel}
                     setTideLevel={setTideLevel}/>
                 {/* hexagons */}
-                <Progress choiceLetters={choiceLetters}
-                          questionRow={questionRow}
-                          tideLevel={tideLevel}
+                <Progress
+                    iceCreamScoops={iceCreamScoops}
+                    setIceCreamScoops={setIceCreamScoops}
+                    iceCreamChoiceData={iceCreamChoiceData}
+                    choiceLetters={choiceLetters}
+                    questionRow={questionRow}
+                    setTideLevel={setTideLevel}
+                    tideLevel={tideLevel}
                 />
             </section>
         </>
