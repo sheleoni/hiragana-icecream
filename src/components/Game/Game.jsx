@@ -103,7 +103,7 @@ function Game() {
             <QuestionFilter optionGroup={optionGroup}/>
 
             <section className="gameInterface">
-                {/* shows scores in terms of ice-cream scope*/}
+                {/* shows scores in terms of ice-cream scoops 🍨*/}
                 <ScoreDisplay
                     score={score}
                     iceCreamScoops={iceCreamScoops}

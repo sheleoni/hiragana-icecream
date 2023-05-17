@@ -3,10 +3,13 @@
     flex-direction: column-reverse;
     /* make enclosed stacking context for ice cream scoops */
     isolation: isolate;
+    list-style: none;
 }
 
-.iceCreamListContainer {
-    list-style: none;
+.iceCreamCone {
+    width: 68%;
+    margin-top: -30%;
+    z-index: 0;
 }
 
 .iceCreamScoop {
@@ -24,11 +27,4 @@
     align-items: center;
     overflow: scroll;
 
-}
-
-.scoreContainer__scoreImage {
-    /*object-fit: contain;*/
-    max-width: 100%;
-    max-height: 80%;
-    /*transform: translateY(-50%);*/
 }
