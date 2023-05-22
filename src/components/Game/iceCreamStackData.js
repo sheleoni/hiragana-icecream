@@ -37,6 +37,54 @@ const iceCreamChoices = {
         },
     ],
 
+
+//     Katakana
+    'ア': [
+        {
+            name: "アルパカ🦙 (Alpaca)",
+            imgURL: ""
+        }, {
+            name: "アーモンド (Almond)",
+            imgURL: ""
+        }
+    ],
+    'イ': [
+        {
+            name: "イタリア🇮🇹 (Italy)",
+            imgURL: ""
+        }, {
+            name: "インク (Ink)",
+            imgURL: ""
+        }
+    ],
+    'ウ': [
+        {
+            name: "ウーロン茶 (Oolong Tea)",
+            imgURL: ""
+        }, {
+            name: "",
+            imgURL: ""
+        }
+    ],
+    'エ': [
+        {
+            name: "エネルギー (Energy)",
+            imgURL: ""
+        }, {
+            name: "エアコン (Aircon)",
+            imgURL: ""
+        }
+    ],
+    'オ': [
+        {
+            name: "オン",
+            imgURL: ""
+        }, {
+            name: "オフ",
+            imgURL: ""
+        }
+    ],
+
 }
 
 export default iceCreamChoices;
