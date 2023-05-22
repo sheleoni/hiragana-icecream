@@ -14,10 +14,24 @@ function ScoreDisplay({score, iceCreamScoops, iceCreamChoiceData}) {
         <p style={{marginBlockEnd: 50}}>Your score is:{' '}{totalScore}</p>
         <ul className={styles.iceCreamContainer}>
             <li>
-                {/* Icecream cone*/}
-                <img
-                    className={styles.iceCreamCone}
-                    src="https://res.cloudinary.com/dd1dw34dc/image/upload/v1684298737/hiragana_game/icecream_scoops/Cone_ncndkh.png"/>
+
+                <Tooltip.Provider delayDuration={1500}>
+                    <Tooltip.Root>
+                        <Tooltip.Trigger asChild>
+                            {/* Icecream cone*/}
+                            <img
+                                className={styles.iceCreamCone}
+                                src="https://res.cloudinary.com/dd1dw34dc/image/upload/v1684298737/hiragana_game/icecream_scoops/Cone_ncndkh.png"/>
+                        </Tooltip.Trigger>
+                        <Tooltip.Portal>
+                            <Tooltip.Content sideOffset={0} className={styles.iceCreamHoverPanel}>
+                                コーンだよ。
+                                <Tooltip.Arrow/>
+                            </Tooltip.Content>
+                        </Tooltip.Portal>
+                    </Tooltip.Root>
+                </Tooltip.Provider>
+
             </li>
             {iceCreamScoops.map((icecream, index) => {
                 return (
