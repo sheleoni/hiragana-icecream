@@ -12,9 +12,21 @@
     z-index: 0;
 }
 
+.iceCreamScoopButton {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+}
+
 .iceCreamScoop {
-    width: 70%;
-    margin-top: -30%;
+    width: 85%;
+    margin-top: -32%;
+}
+
+.iceCreamHoverPanel {
+    background-color: black;
+    padding: 5px;
+    border-radius: 3px;
 }
 
 .scoreContainer {
