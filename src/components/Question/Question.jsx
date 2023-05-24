@@ -1,24 +1,15 @@
 import React from 'react';
 import styles from './Question.module.css';
 
-function Question({question, sampleQuestion, getRandomQuestion}) {
+function Question({questionNumber, question, sampleQuestion, getRandomQuestion}) {
     const imgPath = null;
 
     const questionImage = () => {
-        if (false) {
-            return (
-                <img className={styles.questionImage}
-                     src={question.hiraganaImgURL}
-                     alt={question.hiragana}
-                />
-            );
-        } else {
-            return (
-                <p className={styles.questionWord}>
-                    {sampleQuestion}
-                </p>
-            );
-        }
+        return (
+            <p key={questionNumber} className={`${styles.questionWord} ${styles.animation}`}>
+                {sampleQuestion}
+            </p>
+        );
     }
     return (
         <section
