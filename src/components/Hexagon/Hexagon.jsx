@@ -62,10 +62,6 @@ function Hexagon({choiceLetter, tideLevel, setTideLevel, setIceCreamScoops, iceC
             <span className={styles.hexagonWrapper}>
                 <span className={styles.letter}>
                     {choiceLetter}
-                    {/*{isClickable ? (<button className={styles.starButton} onClick={() => {*/}
-                    {/*        console.log("clicked star!")*/}
-                    {/*    }}>⭐</button>*/}
-                    {/*) : ''}*/}
                 </span>
                 {/* adds outline on topmost layer */}
                 <img
