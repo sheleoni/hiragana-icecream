@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from './Question.module.css';
 
-function Question({question, sampleQuestion, getRandomQuestion}) {
+function Question({questionNumber, question, sampleQuestion, getRandomQuestion}) {
     const imgPath = null;
 
     const questionImage = () => {
         return (
-            <p className={styles.questionWord}>
+            <p key={questionNumber} className={`${styles.questionWord} ${styles.animation}`}>
                 {sampleQuestion}
             </p>
         );

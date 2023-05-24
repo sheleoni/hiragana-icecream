@@ -111,6 +111,7 @@ function Game() {
                 />
                 {/* shows あいうえお with stroke .gif */}
                 <Question
+                    questionNumber={questionNumber}
                     getRandomQuestion={getRandomQuestion}
                     sampleQuestion={sampleQuestion}
                     choiceData={choiceData}/>

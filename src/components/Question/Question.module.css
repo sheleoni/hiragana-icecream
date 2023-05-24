@@ -20,3 +20,23 @@
     opacity: 1;
     transition: opacity 0.5s ease-in-out;
 }
+
+@keyframes slide {
+    from {
+        transform: translateX(30%);
+    }
+    to {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes colors {
+    from {
+        color: hsla(65, 16%, 56%, 0.91);
+    }
+}
+
+.animation {
+    animation: slide 750ms cubic-bezier(0.15, 0.75, 0.25, 1.05),
+    colors 1500ms;
+}
