@@ -1,5 +1,7 @@
 import React from 'react';
 import styles from './Hexagon.module.css';
+import iceCreamChoices from "../Game/iceCreamStackData.js";
+import {sample} from "new-component/src/utils.js";
 
 function Hexagon({choiceLetter, tideLevel, setTideLevel, setIceCreamScoops, iceCreamChoiceData, iceCreamScoops}) {
     const tideLevelToPixels = (tideLevel) => {
@@ -35,13 +37,32 @@ function Hexagon({choiceLetter, tideLevel, setTideLevel, setIceCreamScoops, iceC
     const handleClickHexagon = () => {
         const newIceCream = randomIceCream(choiceLetter);
         addIceCream(newIceCream);
+        console.log('adding ice cream!')
         resetTideLevel();
     }
 
+    // const randomIceCream = (choiceLetter) => {
+    //     if (iceCreamChoiceData[choiceLetter] === false) {
+    //         console.log("no specific icecream scoop image yet!")
+    //         return iceCreamChoiceData["placeholder"][0]
+    //     }
+    //     const randomIndex = Math.floor(Math.random() * iceCreamChoiceData[choiceLetter].length)
+    //     return iceCreamChoiceData[choiceLetter][randomIndex];
+    // }
+
     const randomIceCream = (choiceLetter) => {
-        const randomIndex = Math.floor(Math.random() * iceCreamChoiceData[choiceLetter].length)
-        return iceCreamChoiceData[choiceLetter][randomIndex];
-    }
+        if (
+
+            Object.hasOwn(iceCreamChoiceData, choiceLetter) ||
+            Object.hasOwnProperty.call(iceCreamChoiceData, choiceLetter) // safari fallback
+        ) {
+            const randomIndex = Math.floor(Math.random() * iceCreamChoiceData[choiceLetter].length);
+            return iceCreamChoiceData[choiceLetter][randomIndex];
+        } else {
+            console.log("No specific ice cream scoop image yet!");
+            return iceCreamChoiceData["placeholder"][0];
+        }
+    };
 
     const addIceCream = (iceCream) => {
         const nextIceCream = [...iceCreamScoops, iceCream];

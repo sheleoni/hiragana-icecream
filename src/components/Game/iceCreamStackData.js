@@ -84,6 +84,12 @@ const iceCreamChoices = {
             imgURL: ""
         }
     ],
+    'placeholder': [
+        {
+            name: "😎",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1684916363/hiragana_game/%E7%84%A1%E6%95%B5_kduneg.png",
+        }
+    ]
 
 }
 
