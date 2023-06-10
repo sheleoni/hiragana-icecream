@@ -14,16 +14,39 @@ import tideLevelData from "./tideLevel.js";
 import iceCreamChoices from "./iceCreamStackData.js";
 
 function Game() {
-
     const iceCreamChoiceData = iceCreamChoices;
     const [iceCreamScoops, setIceCreamScoops] = React.useState([]);
     const [questionNumber, setQuestionNumber] = React.useState(0);
     React.useEffect(() => setQuestionNumber(questionNumber + 1), []);
     // keeps track of how many questions the user has gone through
     console.log(questionNumber, 'current questionNumber');
+    
+    console.log(import.meta.env.VITE_ABCDEF);
+    // console.log(ABCDEF);
 
     const {levelFilter} = React.useContext(LevelFilterContext);
     const [questionPool, setQuestionPool] = React.useState([]);
+
+    const [record, setRecord] = React.useState();
+
+    React.useEffect(() => {
+        console.log("getting user data!")
+        const fetchData = async () => {
+            try {
+                const response = await fetch('http://localhost:5888/');
+                if (!response.ok) {
+                    console.log("HTTP response not OK");
+                }
+                const record = await response.json();
+                console.log(record);
+                console.log('↑ record');
+                setRecord(record);
+            } catch (error) {
+                console.log("Failed to fetch data: ", error);
+            }
+        };
+        fetchData()
+    }, [])
 
     React.useEffect(() => {
         const filterRowCharacters = (characterList) => {
@@ -72,13 +95,12 @@ function Game() {
         return getSampleQuestionRow(sampleQuestion);
     }, [questionNumber]);
 
-
-    const totalScore = Object.values(scoreData).reduce((sum, currentValue) => {
-        return sum + currentValue;
-    }, 0)
-
     const [score, setScore] = React.useState(scoreData);
-    // const [answer, setAnswer] = useState('あ');
+
+    let totalScore = 0;
+    for (const key in score) {
+        totalScore += score[key];
+    }
 
     const choiceLetters = choiceData;
 
@@ -96,11 +118,50 @@ function Game() {
 
     return (
         <>
+            <p>
+                {record ? (<div>
+                    Hello there, {record.data.nickName}! Nice to see you back.
+
+                </div>) : <div>Loading...</div>}
+            </p>
+
             Q{questionNumber}
             <button onClick={getRandomQuestion}>
                 🔀
             </button>
             <QuestionFilter optionGroup={optionGroup}/>
+
+            <button className="submitButton" onClick={async () => {
+                try {
+                    console.log(scoreData);
+                    console.log(score, 'score');
+                    console.log("submitting data!")
+                    console.log("total score field:", totalScore)
+                    const response = await fetch('http://localhost:5888/submitScore', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            username: record.data.nickName,
+                            totalScore: totalScore
+                        })
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const data = await response.json();
+                    console.log(data);
+                    window.alert("Score submitted! Have fun!")
+                } catch (error) {
+                    console.log('Fetch error:', error);
+                }
+            }}>
+                Submit Score! {totalScore}
+            </button>
+
 
             <section className="gameInterface">
                 {/* shows scores in terms of ice-cream scoops 🍨*/}
@@ -138,6 +199,8 @@ function Game() {
                     setTideLevel={setTideLevel}
                     tideLevel={tideLevel}
                 />
+
+
             </section>
         </>
     )
