@@ -19,4 +19,16 @@
     grid-template-rows: 55% 45%;
 }
 
+.submitButton {
+    margin-inline-start: 10px;
+    background-color: #659865;
+    color: #fff;
+    margin-block-end: 15px;
+    transition: 0.3s;
+}
 
+.submitButton:hover {
+    background-color: #efd362;
+    background-color: #427042;
+    transition: 0.3s;
+}
