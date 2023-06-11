@@ -6,7 +6,7 @@ const app = express();
 const {MongoClient, ObjectId} = require('mongodb');
 const cors = require('cors');
 
-const port = process.env.BACKEND_PORT;
+const port = process.env.PORT || process.env.BACKEND_PORT;
 const uri = process.env.DB_CONNECTION_STRING;
 const dbName = process.env.DB_NAME;
 
