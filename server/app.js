@@ -12,8 +12,11 @@ const dbName = process.env.DB_NAME;
 
 const client = new MongoClient(uri);
 
-app.use(cors());
-app.use(express.json());
+app.use(cors({
+    origin: 'https://hiragana-icecream.sheleoni.com',
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));app.use(express.json());
 
 // Connect to the MongoDB database
 client.connect().then(() => {
