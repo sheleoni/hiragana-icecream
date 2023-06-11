@@ -20,6 +20,9 @@ function Game() {
     React.useEffect(() => setQuestionNumber(questionNumber + 1), []);
     // keeps track of how many questions the user has gone through
     console.log(questionNumber, 'current questionNumber');
+
+    const backendURL = import.meta.env.VITE_BACKEND_URL;
+    console.log(backendURL);
     
     console.log(import.meta.env.VITE_ABCDEF);
     // console.log(ABCDEF);
@@ -33,7 +36,7 @@ function Game() {
         console.log("getting user data!")
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:5888/');
+                const response = await fetch(backendURL);
                 if (!response.ok) {
                     console.log("HTTP response not OK");
                 }
@@ -137,7 +140,7 @@ function Game() {
                     console.log(score, 'score');
                     console.log("submitting data!")
                     console.log("total score field:", totalScore)
-                    const response = await fetch('http://localhost:5888/submitScore', {
+                    const response = await fetch(`${backendURL}submitScore`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
