@@ -14,14 +14,7 @@ const client = new MongoClient(uri);
 
 
 app.use(express.json());
-app.use(cors({
-    origin: 'https://hiragana-icecream.sheleoni.com', // replace with your domain
-    methods: ['GET', 'POST'], // adjust according to your needs
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
-    preflightContinue: false,
-    optionsSuccessStatus: 204
-}));
+app.use(cors());
 
 // Connect to the MongoDB database
 client.connect().then(() => {
