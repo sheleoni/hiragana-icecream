@@ -60,7 +60,7 @@ function Hexagon({choiceLetter, tideLevel, setTideLevel, setIceCreamScoops, iceC
             return iceCreamChoiceData[choiceLetter][randomIndex];
         } else {
             console.log("No specific ice cream scoop image yet!");
-            return iceCreamChoiceData["placeholder"][0];
+            return iceCreamChoiceData["placeholder"][Math.floor(Math.random() * iceCreamChoiceData["placeholder"].length)];
         }
     };
 
