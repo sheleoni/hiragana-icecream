@@ -33,7 +33,7 @@ function ScoreDisplay({score, iceCreamScoops, iceCreamChoiceData}) {
                 </Tooltip.Provider>
 
             </li>
-            {iceCreamScoops.map((icecream, index) => {
+            {iceCreamScoops?.map((icecream, index) => {
                 return (
                     <>
                         <li key={index} className={styles.iceCreamListContainer} style={{zIndex: index + 1}}>

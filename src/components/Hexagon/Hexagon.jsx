@@ -65,7 +65,7 @@ function Hexagon({choiceLetter, tideLevel, setTideLevel, setIceCreamScoops, iceC
     };
 
     const addIceCream = (iceCream) => {
-        const nextIceCream = [...iceCreamScoops, iceCream];
+        const nextIceCream = [...(iceCreamScoops || []), iceCream];
         setIceCreamScoops(nextIceCream);
         console.log(iceCreamScoops, 'this is the new iceCreamScoops after updating the state!')
     }
