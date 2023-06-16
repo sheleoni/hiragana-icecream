@@ -140,6 +140,8 @@ function Game() {
                     console.log(score, 'score');
                     console.log("submitting data!")
                     console.log("total score field:", totalScore)
+
+                    // Submitting to /submitScore route
                     const response = await fetch(`${backendURL}submitScore`, {
                         method: 'POST',
                         headers: {
@@ -147,7 +149,7 @@ function Game() {
                         },
                         body: JSON.stringify({
                             username: record.data.nickName,
-                            totalScore: totalScore
+                            totalScore: totalScore,
                         })
                     });
 
@@ -157,7 +159,27 @@ function Game() {
 
                     const data = await response.json();
                     console.log(data);
-                    window.alert("Score submitted! Have fun!")
+
+                    // Submitting to /setIceCreamScoop route
+                    const scoopResponse = await fetch(`${backendURL}setIceCreamScoop`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            iceCreamScoops: iceCreamScoops
+                        })
+                    });
+
+                    // Check response from /setIceCreamScoop route
+                    if (!scoopResponse.ok) {
+                        throw new Error(`HTTP error! status: ${scoopResponse.status}`);
+                    }
+
+                    const scoopData = await scoopResponse.json();
+                    console.log(scoopData);
+
+                    window.alert("Score and scoop data submitted! Have fun!")
                 } catch (error) {
                     console.log('Fetch error:', error);
                 }
