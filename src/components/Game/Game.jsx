@@ -43,10 +43,10 @@ function Game() {
                 const record = await response.json();
                 console.log(record);
                 console.log('↑ record');
-                console.log(record.data.iceCreamScoop);
+                console.log(record.data.iceCreamScoops);
                 console.log('↑ icecream scoops');
                 setRecord(record);
-                setIceCreamScoops(record.data.iceCreamScoop);
+                setIceCreamScoops(record.data.iceCreamScoops);
                 setScore(record.data.characterScores);
                 setTideLevel(record.data.tideLevel);
             } catch (error) {
