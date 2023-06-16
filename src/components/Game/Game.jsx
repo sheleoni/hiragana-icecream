@@ -43,7 +43,12 @@ function Game() {
                 const record = await response.json();
                 console.log(record);
                 console.log('↑ record');
+                console.log(record.data.iceCreamScoop);
+                console.log('↑ icecream scoops');
                 setRecord(record);
+                setIceCreamScoops(record.data.iceCreamScoop);
+                setScore(record.data.characterScores);
+                setTideLevel(record.data.tideLevel);
             } catch (error) {
                 console.log("Failed to fetch data: ", error);
             }
@@ -100,6 +105,7 @@ function Game() {
 
     const [score, setScore] = React.useState(scoreData);
 
+    // score contains individual scores of each character, and totalScore is a derived state from score
     let totalScore = 0;
     for (const key in score) {
         totalScore += score[key];
@@ -142,7 +148,7 @@ function Game() {
                     console.log("total score field:", totalScore)
 
                     // Submitting to /submitScore route
-                    const response = await fetch(`${backendURL}submitScore`, {
+                    const totalScoreResponse = await fetch(`${backendURL}submitScore`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
@@ -153,11 +159,11 @@ function Game() {
                         })
                     });
 
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
+                    if (!totalScoreResponse.ok) {
+                        throw new Error(`HTTP error! status: ${totalScoreResponse.status}`);
                     }
 
-                    const data = await response.json();
+                    const data = await totalScoreResponse.json();
                     console.log(data);
 
                     // Submitting to /setIceCreamScoop route
@@ -168,6 +174,28 @@ function Game() {
                         },
                         body: JSON.stringify({
                             iceCreamScoops: iceCreamScoops
+                        })
+                    });
+
+                    // Submitting to /setCharacterScore route
+                    const characterScoreResponse = await fetch(`${backendURL}setCharacterScore`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            characterScore: score
+                        })
+                    });
+
+                    // Submitting to /setTideLevel route
+                    const tideLevelResponse = await fetch(`${backendURL}setTideLevel`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            tideLevel: tideLevel
                         })
                     });
 
