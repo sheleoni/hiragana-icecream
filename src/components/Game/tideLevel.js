@@ -70,6 +70,7 @@ const tideLevel = {
     "れ": 0,
     "ろ": 0,
     "わ": 0,
+    "を": 0,
     "ん": 0,
 
     // katakana

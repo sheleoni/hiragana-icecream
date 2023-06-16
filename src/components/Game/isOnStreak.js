@@ -70,6 +70,7 @@ const isOnStreak = {
     "れ": true,
     "ろ": true,
     "わ": true,
+    "を": true,
     "ん": true,
 
     // katakana
