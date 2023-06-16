@@ -88,7 +88,39 @@ const iceCreamChoices = {
         {
             name: "😎",
             imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1684916363/hiragana_game/%E7%84%A1%E6%95%B5_kduneg.png",
-        }
+        },
+        {
+            name: "元気（げんき）",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1686939307/hiragana_game/icecream_scoops/%E7%84%A1%E6%95%B5_%E5%85%83%E6%B0%97_h36z8u.png",
+        },
+        {
+            name: "すごい",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1686939306/hiragana_game/icecream_scoops/%E7%84%A1%E6%95%B5_%E3%81%99%E3%81%93%E3%82%99%E3%81%84_vwxbgj.png",
+        },
+        {
+            name: "お腹いっぱい（おなかいっぱい）",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1686939306/hiragana_game/icecream_scoops/%E7%84%A1%E6%95%B5_%E3%81%8A%E8%85%B9%E3%81%84%E3%81%A3%E3%81%AF%E3%82%9A%E3%81%84_xhetgk.png",
+        },
+        {
+            name: "虹（にじ）",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1686939305/hiragana_game/icecream_scoops/%E7%84%A1%E6%95%B5_%E8%99%B9_dpcxmz.png",
+        },
+        {
+            name: "ふくろ",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1686939305/hiragana_game/icecream_scoops/%E7%84%A1%E6%95%B5_%E3%81%B5%E3%81%8F%E3%82%8D_jpylgt.png",
+        },
+        {
+            name: "頑張る（がんばる）",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1686939305/hiragana_game/icecream_scoops/%E7%84%A1%E6%95%B5_%E9%A0%91%E5%BC%B5%E3%82%8B_ifhcrz.png",
+        },
+        {
+            name: "夏（なつ）",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1686939305/hiragana_game/icecream_scoops/%E7%84%A1%E6%95%B5_%E5%A4%8F_agjhzc.png",
+        },
+        {
+            name: "やった！",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1686939305/hiragana_game/icecream_scoops/%E7%84%A1%E6%95%B5_%E3%82%84%E3%81%A3%E3%81%9F_elk2zr.png",
+        },
     ]
 
 }
