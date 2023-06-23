@@ -36,8 +36,45 @@ const iceCreamChoices = {
             imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1684249747/hiragana_game/icecream_scoops/%E3%81%8A%E3%81%AB%E3%81%8D%E3%82%99%E3%82%8A_bmz814.png"
         },
     ],
-
-
+    'ば': [
+        {
+            name: "ばあちゃん",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1687530522/hiragana_game/icecream_scoops/%E3%81%AF%E3%82%99%E3%81%82%E3%81%A1%E3%82%83%E3%82%93_ozogxi.png"
+        },
+    ],
+    'び': [
+        {
+            name: "びよういん（美容院）",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1687530520/hiragana_game/icecream_scoops/%E3%81%B2%E3%82%99%E3%82%88%E3%81%86%E3%81%84%E3%82%93_xbadmt.png"
+        },
+        {
+            name: "びょういん（病院）",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1687530520/hiragana_game/icecream_scoops/%E3%81%B2%E3%82%99%E3%82%87%E3%81%86%E3%81%84%E3%82%93_cfi5pl.png"
+        },
+    ],
+    'ぶ': [
+        {
+            name: "ぶどう（葡萄）",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1687530773/hiragana_game/icecream_scoops/%E3%81%B5%E3%82%99%E3%81%A8%E3%82%99%E3%81%86_mwrc42.png"
+        },
+        {
+            name: "ぶた（豚）",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1687530520/hiragana_game/icecream_scoops/%E3%81%B5%E3%82%99%E3%81%9F_xzgy0k.png"
+        },
+    ],
+    'べ': [
+        {
+            name: "べんとう（弁当）",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1687530521/hiragana_game/icecream_scoops/%E3%81%B8%E3%82%99%E3%82%93%E3%81%A8%E3%81%86_vttt0q.png"
+        },
+    ],
+    'ぼ': [
+        {
+            name: "ぼうし（帽子）",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1687530520/hiragana_game/icecream_scoops/%E3%81%BB%E3%82%99%E3%81%86%E3%81%97_rwjxyj.png"
+        },
+    ],
+// ぱぴぷぺぽ skipped
 //     Katakana
     'ア': [
         {
