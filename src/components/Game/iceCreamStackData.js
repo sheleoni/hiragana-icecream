@@ -79,48 +79,135 @@ const iceCreamChoices = {
     'ア': [
         {
             name: "アルパカ🦙 (Alpaca)",
-            imgURL: ""
-        }, {
-            name: "アーモンド (Almond)",
-            imgURL: ""
-        }
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1687533026/hiragana_game/icecream_scoops/%E3%82%A2%E3%83%AB%E3%83%8F%E3%82%9A%E3%82%AB_vug49a.png"
+        },
+        {
+            name: "アップルジュース",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1687533026/hiragana_game/icecream_scoops/%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E3%83%AB%E3%82%B7%E3%82%99%E3%83%A5%E3%83%BC%E3%82%B9_j6nmmn.png"
+        },
     ],
     'イ': [
         {
-            name: "イタリア🇮🇹 (Italy)",
-            imgURL: ""
-        }, {
-            name: "インク (Ink)",
-            imgURL: ""
+            name: "イカ",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1687533026/hiragana_game/icecream_scoops/%E3%82%A4%E3%82%AB_uc9sh5.png"
+        },
+        {
+            name: "イルカ",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1687533026/hiragana_game/icecream_scoops/%E3%82%A4%E3%83%AB%E3%82%AB_a47xud.png"
         }
     ],
     'ウ': [
         {
-            name: "ウーロン茶 (Oolong Tea)",
-            imgURL: ""
-        }, {
-            name: "",
-            imgURL: ""
+            name: "ウクレレ",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1687533026/hiragana_game/icecream_scoops/%E3%82%A6%E3%82%AF%E3%83%AC%E3%83%AC_wbdrki.png"
+        },
+        {
+            name: "ウイルス",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1687533025/hiragana_game/icecream_scoops/%E3%82%A6%E3%82%A4%E3%83%AB%E3%82%B9_jnz4gm.png"
+        },
+        {
+            name: "ウニ",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1687533025/hiragana_game/icecream_scoops/%E3%82%A6%E3%83%8B_gl6q8l.png"
         }
     ],
     'エ': [
         {
-            name: "エネルギー (Energy)",
-            imgURL: ""
-        }, {
-            name: "エアコン (Aircon)",
-            imgURL: ""
+            name: "エアコン",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1687533025/hiragana_game/icecream_scoops/%E3%82%A8%E3%82%A2%E3%82%B3%E3%83%B3_wy9xgx.png"
         }
     ],
     'オ': [
         {
             name: "オン",
-            imgURL: ""
-        }, {
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1687533025/hiragana_game/icecream_scoops/%E3%82%AA%E3%83%B3_ouovjn.png"
+        },
+        {
             name: "オフ",
-            imgURL: ""
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1687533025/hiragana_game/icecream_scoops/%E3%82%AA%E3%83%95_kmsqpy.png"
+        },
+        {
+            name: "オレンジ",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1687533025/hiragana_game/icecream_scoops/%E3%82%AA%E3%83%AC%E3%83%B3%E3%82%B7%E3%82%99_zpagsb.png"
         }
     ],
+    'カ': [
+        {
+            name: "カメラ",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1687533024/hiragana_game/icecream_scoops/%E3%82%AB%E3%83%A1%E3%83%A9_hdhiz8.png"
+        },
+        {
+            name: "カレー",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1687533025/hiragana_game/icecream_scoops/%E3%82%AB%E3%83%AC%E3%83%BC_xejdbl.png"
+        }
+    ],
+    'キ': [
+        {
+            name: "キャンセル",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1687533024/hiragana_game/icecream_scoops/%E3%82%AD%E3%83%A3%E3%83%B3%E3%82%BB%E3%83%AB_gk2yre.png"
+        }
+    ],
+    'ク': [
+        {
+            name: "クッキー",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1687533024/hiragana_game/icecream_scoops/%E3%82%AF%E3%83%83%E3%82%AD%E3%83%BC_kp6sbc.png"
+        }
+    ],
+    // 'ケ': [
+    //     {
+    //         name: "",
+    //         imgURL: ""
+    //     }
+    // ],
+    'コ': [
+        {
+            name: "ココア",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1687533024/hiragana_game/icecream_scoops/%E3%82%B3%E3%82%B3%E3%82%A2_jth9de.png"
+        },
+        {
+            name: "コーラ",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1687533024/hiragana_game/icecream_scoops/%E3%82%B3%E3%83%BC%E3%83%A9_kjgkgi.png"
+        }
+    ],
+    'サ': [
+        {
+            name: "サーモン",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1687533023/hiragana_game/icecream_scoops/%E3%82%B5%E3%83%BC%E3%83%A2%E3%83%B3_adf35t.png"
+        }
+    ],
+    'シ': [
+        {
+            name: "シェフ",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1687533023/hiragana_game/icecream_scoops/%E3%82%B7%E3%82%A7%E3%83%95_g62kc4.png"
+        }
+    ],
+    'ス': [
+        {
+            name: "スイカ",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1687537469/hiragana_game/icecream_scoops/%E3%82%B9%E3%82%A4%E3%82%AB_ykjo1f.png"
+        },
+        {
+            name: "スマホ",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1687533023/hiragana_game/icecream_scoops/%E3%82%B9%E3%83%9E%E3%83%9B_pqwn8k.png"
+        }
+    ],
+    'セ': [
+        {
+            name: "セルフィー🤳",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1687533023/hiragana_game/icecream_scoops/%E3%82%BB%E3%83%AB%E3%83%95%E3%82%A3%E3%83%BC_hk3wkx.png"
+        }
+    ],
+    'ソ': [
+        {
+            name: "ソフトクリーム🍦",
+            imgURL: "https://res.cloudinary.com/dd1dw34dc/image/upload/v1687533023/hiragana_game/icecream_scoops/%E3%82%BD%E3%83%95%E3%83%88%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%A0_cvkfn0.png"
+        }
+    ],
+    // '': [
+    //     {
+    //         name: "",
+    //         imgURL: ""
+    //     }
+    // ],
     'placeholder': [
         {
             name: "😎",
