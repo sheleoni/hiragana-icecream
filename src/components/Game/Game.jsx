@@ -25,7 +25,6 @@ function Game() {
     console.log(backendURL);
     
     console.log(import.meta.env.VITE_ABCDEF);
-    // console.log(ABCDEF);
 
     const {levelFilter} = React.useContext(LevelFilterContext);
     const [questionPool, setQuestionPool] = React.useState([]);
