@@ -12,6 +12,7 @@ import rowLetters from "./rowLetters.js";
 import isOnStreakData from "./isOnStreak.js";
 import tideLevelData from "./tideLevel.js";
 import iceCreamChoices from "./iceCreamStackData.js";
+import { Link } from 'react-router-dom';
 
 function Game() {
     const iceCreamChoiceData = iceCreamChoices;
@@ -126,6 +127,9 @@ function Game() {
 
     return (
         <>
+            <p>
+                <Link to="/collection">Collection</Link>
+            </p>
             <p>
                 {record ? (<div>
                     Hello there, {record.data.nickName}! Nice to see you back.
