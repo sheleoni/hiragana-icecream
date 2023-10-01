@@ -9,6 +9,14 @@
 ![Demo_hiragana_game_vite_unlock_hiragana](https://github.com/sheleoni/hiragana-icecream/assets/85994674/5e5b0e70-9754-491e-a458-8a1b5d50aee5)
 
 ## Functionalities
+
+### Filter Hiragana / Katakana Characters
+- Click the funnel (⏳) icon to toggle the modal. Choose which hiragana / katakana characters you would like to be tested on.
+![Demo_hiragana_game_vite_filter_modal](https://github.com/sheleoni/hiragana-icecream/assets/85994674/a9c4c3ae-c8e4-4c7e-9655-e4548c361edb)
+
+
+  
+
 ### Save to DB (MongoDB)
 - Clicking 'Submit Score' saves current user data (score, icecream stack, tide level) to database 
 ![Demo_hiragana_game_vite_save_to_database](https://github.com/sheleoni/hiragana-icecream/assets/85994674/504f5244-8c77-4d21-9521-fde9d3f8a843)
