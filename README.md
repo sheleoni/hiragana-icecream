@@ -1,3 +1,6 @@
+# Updated repo at: https://github.com/sheleoni/icecream-kana-game
+The newer repo enables users to login via their Google account, as the newer repo uses NextJS + AuthJS.
+
 ## A React app for all to learn the basic alphabets in Japanese. 
 ### Deployed URL: https://hiragana-icecream.sheleoni.com/
 
@@ -13,9 +16,6 @@
 ### Filter Hiragana / Katakana Characters
 - Click the funnel (⏳) icon to toggle the modal. Choose which hiragana / katakana characters you would like to be tested on.
 ![Demo_hiragana_game_vite_filter_modal](https://github.com/sheleoni/hiragana-icecream/assets/85994674/a9c4c3ae-c8e4-4c7e-9655-e4548c361edb)
-
-
-  
 
 ### Save to DB (MongoDB)
 - Clicking 'Submit Score' saves current user data (score, icecream stack, tide level) to database 
